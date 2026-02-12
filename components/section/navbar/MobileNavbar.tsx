@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Menu, X, Rocket, BookOpen, User, Phone, Globe, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -22,8 +23,17 @@ export function MobileNavbar() {
             <div className="container mx-auto px-4 py-3 flex items-center justify-between">
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-2 font-bold text-xl tracking-tighter">
-                    <span className="text-primary">PP</span>
-                    <span className="text-secondary">Wahabangil</span>
+                    <Image
+                        src="/logo.svg"
+                        alt="PP Wahabangil Logo"
+                        width={32}
+                        height={32}
+                        className="w-8 h-8"
+                    />
+                    <div className="flex items-center gap-1">
+                        <span className="text-primary">PP</span>
+                        <span className="text-secondary">Wahabangil</span>
+                    </div>
                 </Link>
 
                 {/* Mobile Menu Button */}

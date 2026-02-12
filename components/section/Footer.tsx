@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Facebook, Instagram, Twitter, Youtube, Mail, Phone, MapPin } from "lucide-react";
 
 export function Footer() {
@@ -10,21 +11,30 @@ export function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
                     {/* Brand Column */}
                     <div className="space-y-4">
-                        <Link href="/" className="inline-block font-bold text-2xl tracking-tighter mb-2">
-                            <span className="text-white">PP</span>
-                            <span className="text-secondary">Wahabangil</span>
+                        <Link href="/" className="inline-flex items-center gap-3 font-bold text-2xl tracking-tighter mb-2 hover:opacity-80 hover:scale-105 transition-all duration-300">
+                            <Image
+                                src="/logo.svg"
+                                alt="PP Wahabangil Logo"
+                                width={40}
+                                height={40}
+                                className="w-10 h-10"
+                            />
+                            <div className="flex items-center gap-1">
+                                <span className="text-white">PP</span>
+                                <span className="text-secondary">Wahabangil</span>
+                            </div>
                         </Link>
                         <p className="text-white/80 text-sm leading-relaxed max-w-xs">
                             Membangun generasi Islami yang berakhlak mulia, cerdas, dan mandiri dengan standar pendidikan modern.
                         </p>
                         <div className="flex gap-4 pt-2">
-                            <Link href="#" className="p-2 bg-white/10 rounded-full hover:bg-secondary transition-colors group">
+                            <Link href="#" className="p-2 bg-white/10 rounded-full hover:bg-secondary hover:scale-110 transition-all duration-300 group">
                                 <Facebook className="w-4 h-4 text-white group-hover:text-white" />
                             </Link>
-                            <Link href="#" className="p-2 bg-white/10 rounded-full hover:bg-secondary transition-colors group">
+                            <Link href="#" className="p-2 bg-white/10 rounded-full hover:bg-secondary hover:scale-110 transition-all duration-300 group">
                                 <Instagram className="w-4 h-4 text-white group-hover:text-white" />
                             </Link>
-                            <Link href="#" className="p-2 bg-white/10 rounded-full hover:bg-secondary transition-colors group">
+                            <Link href="#" className="p-2 bg-white/10 rounded-full hover:bg-secondary hover:scale-110 transition-all duration-300 group">
                                 <Youtube className="w-4 h-4 text-white group-hover:text-white" />
                             </Link>
                         </div>
@@ -37,33 +47,48 @@ export function Footer() {
                         </h3>
                         <ul className="space-y-3 text-sm text-white/80">
                             <li>
-                                <Link href="/about" className="hover:text-secondary transition-colors flex items-center gap-2">
+                                <Link href="#" className="hover:text-secondary hover:scale-105 transition-all duration-300 flex items-center gap-2 group relative">
                                     <span className="w-1.5 h-1.5 rounded-full bg-secondary/50"></span>
-                                    Tentang Kami
+                                    <span className="relative">
+                                        Tentang Kami
+                                        <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
+                                    </span>
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/programs" className="hover:text-secondary transition-colors flex items-center gap-2">
+                                <Link href="#" className="hover:text-secondary hover:scale-105 transition-all duration-300 flex items-center gap-2 group relative">
                                     <span className="w-1.5 h-1.5 rounded-full bg-secondary/50"></span>
-                                    Program Pendidikan
+                                    <span className="relative">
+                                        Program Pendidikan
+                                        <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
+                                    </span>
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/admissions" className="hover:text-secondary transition-colors flex items-center gap-2">
+                                <Link href="#" className="hover:text-secondary hover:scale-105 transition-all duration-300 flex items-center gap-2 group relative">
                                     <span className="w-1.5 h-1.5 rounded-full bg-secondary/50"></span>
-                                    Pendaftaran Siswa Baru
+                                    <span className="relative">
+                                        Pendaftaran Siswa Baru
+                                        <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
+                                    </span>
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/news" className="hover:text-secondary transition-colors flex items-center gap-2">
+                                <Link href="#" className="hover:text-secondary hover:scale-105 transition-all duration-300 flex items-center gap-2 group relative">
                                     <span className="w-1.5 h-1.5 rounded-full bg-secondary/50"></span>
-                                    Berita & Artikel
+                                    <span className="relative">
+                                        Berita & Artikel
+                                        <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
+                                    </span>
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/gallery" className="hover:text-secondary transition-colors flex items-center gap-2">
+                                <Link href="#" className="hover:text-secondary hover:scale-105 transition-all duration-300 flex items-center gap-2 group relative">
                                     <span className="w-1.5 h-1.5 rounded-full bg-secondary/50"></span>
-                                    Galeri Kegiatan
+                                    <span className="relative">
+                                        Galeri Kegiatan
+                                        <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
+                                    </span>
                                 </Link>
                             </li>
                         </ul>
@@ -76,27 +101,39 @@ export function Footer() {
                         </h3>
                         <ul className="space-y-3 text-sm text-white/80">
                             <li>
-                                <Link href="/programs/tahfidz" className="hover:text-secondary transition-colors flex items-center gap-2">
+                                <Link href="#" className="hover:text-secondary hover:scale-105 transition-all duration-300 flex items-center gap-2 group relative">
                                     <span className="w-1.5 h-1.5 rounded-full bg-secondary/50"></span>
-                                    Tahfidz Al-Qur'an
+                                    <span className="relative">
+                                        Tahfidz Al-Qur'an
+                                        <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
+                                    </span>
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/programs/bahasa" className="hover:text-secondary transition-colors flex items-center gap-2">
+                                <Link href="#" className="hover:text-secondary hover:scale-105 transition-all duration-300 flex items-center gap-2 group relative">
                                     <span className="w-1.5 h-1.5 rounded-full bg-secondary/50"></span>
-                                    Pengembangan Bahasa
+                                    <span className="relative">
+                                        Pengembangan Bahasa
+                                        <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
+                                    </span>
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/programs/sains" className="hover:text-secondary transition-colors flex items-center gap-2">
+                                <Link href="#" className="hover:text-secondary hover:scale-105 transition-all duration-300 flex items-center gap-2 group relative">
                                     <span className="w-1.5 h-1.5 rounded-full bg-secondary/50"></span>
-                                    Sains & Teknologi
+                                    <span className="relative">
+                                        Sains & Teknologi
+                                        <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
+                                    </span>
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/programs/entrepreneur" className="hover:text-secondary transition-colors flex items-center gap-2">
+                                <Link href="#" className="hover:text-secondary hover:scale-105 transition-all duration-300 flex items-center gap-2 group relative">
                                     <span className="w-1.5 h-1.5 rounded-full bg-secondary/50"></span>
-                                    Entrepreneurship
+                                    <span className="relative">
+                                        Entrepreneurship
+                                        <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
+                                    </span>
                                 </Link>
                             </li>
                         </ul>
@@ -118,14 +155,16 @@ export function Footer() {
                             </li>
                             <li className="flex items-center gap-3">
                                 <Phone className="w-5 h-5 text-secondary shrink-0" />
-                                <a href="tel:+62343123456" className="hover:text-secondary transition-colors">
+                                <a href="tel:+62343123456" className="hover:text-secondary hover:scale-105 transition-all duration-300 relative group inline-block">
                                     (0343) 123-456
+                                    <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
                                 </a>
                             </li>
                             <li className="flex items-center gap-3">
                                 <Mail className="w-5 h-5 text-secondary shrink-0" />
-                                <a href="mailto:info@ppwahabangil.sch.id" className="hover:text-secondary transition-colors">
+                                <a href="mailto:info@ppwahabangil.sch.id" className="hover:text-secondary hover:scale-105 transition-all duration-300 relative group inline-block">
                                     info@ppwahabangil.sch.id
+                                    <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
                                 </a>
                             </li>
                         </ul>
@@ -133,12 +172,21 @@ export function Footer() {
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="pt-8 mt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white">
-                    <p>&copy; {currentYear} PP Wahabangil. All rights reserved.</p>
-                    <div className="flex items-center gap-6">
-                        <Link href="#" className="hover:text-secondary transition-colors">Privacy Policy</Link>
-                        <Link href="#" className="hover:text-secondary transition-colors">Terms of Service</Link>
-                        <Link href="#" className="hover:text-secondary transition-colors">Sitemap</Link>
+                <div className="pt-6 mt-4 border-t border-white/20 flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
+                    <p className="text-white text-sm">&copy; {currentYear} PP Waha Bangil. All rights reserved.</p>
+                    <div className="flex items-center gap-6 text-white text-sm">
+                        <Link href="#" className="hover:text-secondary hover:scale-105 transition-all duration-300 relative group">
+                            Privacy Policy
+                            <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
+                        </Link>
+                        <Link href="#" className="hover:text-secondary hover:scale-105 transition-all duration-300 relative group">
+                            Terms of Service
+                            <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
+                        </Link>
+                        <Link href="#" className="hover:text-secondary hover:scale-105 transition-all duration-300 relative group">
+                            Sitemap
+                            <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
+                        </Link>
                     </div>
                 </div>
             </div>
