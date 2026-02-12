@@ -14,7 +14,7 @@ const staff: StaffMember[] = [
     {
         name: "KH. Ahmad Fauzan",
         role: "Pengasuh Pondok",
-        image: "https://images.unsplash.com/photo-1566753323558-f4e0952af86f?q=80&w=1374&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=1374&auto=format&fit=crop",
         quote: "Pendidikan adalah amanah untuk mencetak generasi Rabbani."
     },
     {
@@ -35,7 +35,7 @@ const staff: StaffMember[] = [
     {
         name: "Ust. Siti Aminah",
         role: "Pengajar Bahasa Arab",
-        image: "https://images.unsplash.com/photo-1554151228-14d9def656ec?q=80&w=1372&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1372&auto=format&fit=crop",
     },
     {
         name: "Ust. Rahmat Hidayat",
