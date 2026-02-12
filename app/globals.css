@@ -67,6 +67,9 @@
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
+
+  /* Animations */
+  --animate-bounce-slow: bounce 3s infinite;
 }
 
 @layer base {
