@@ -98,7 +98,7 @@ const cardVariants = {
 
 export function WhyChooseUs() {
     return (
-        <section className="py-24 relative overflow-hidden">
+        <section className="w-full px-4 py-24 relative overflow-hidden">
             {/* Decorative Background */}
             <div className="absolute inset-0 bg-[#FAFAFA] -z-20" />
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 opacity-30 pointer-events-none">

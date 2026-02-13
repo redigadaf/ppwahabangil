@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Facebook, Instagram, Twitter, Youtube, Mail, Phone, MapPin } from "lucide-react";
+import { SocialLinks } from "@/components/ui/social-links";
 
 export function Footer() {
     const currentYear = new Date().getFullYear();
@@ -17,27 +18,43 @@ export function Footer() {
                                 alt="PP Wahabangil Logo"
                                 width={40}
                                 height={40}
-                                className="w-10 h-10"
+                                className="w-20 h-20"
                             />
-                            <div className="flex items-center gap-1">
+                            <div className="flex items-center gap-2">
                                 <span className="text-white">PP</span>
-                                <span className="text-secondary">Wahabangil</span>
+                                <span className="text-secondary">Waha Bangil</span>
                             </div>
                         </Link>
                         <p className="text-white/80 text-sm leading-relaxed max-w-xs">
                             Membangun generasi Islami yang berakhlak mulia, cerdas, dan mandiri dengan standar pendidikan modern.
                         </p>
-                        <div className="flex gap-4 pt-2">
-                            <Link href="#" className="p-2 bg-white/10 rounded-full hover:bg-secondary hover:scale-110 transition-all duration-300 group">
-                                <Facebook className="w-4 h-4 text-white group-hover:text-white" />
-                            </Link>
-                            <Link href="#" className="p-2 bg-white/10 rounded-full hover:bg-secondary hover:scale-110 transition-all duration-300 group">
-                                <Instagram className="w-4 h-4 text-white group-hover:text-white" />
-                            </Link>
-                            <Link href="#" className="p-2 bg-white/10 rounded-full hover:bg-secondary hover:scale-110 transition-all duration-300 group">
-                                <Youtube className="w-4 h-4 text-white group-hover:text-white" />
-                            </Link>
-                        </div>
+                        <SocialLinks
+                            socials={[
+                                {
+                                    id: "facebook",
+                                    label: "Facebook",
+                                    href: "#",
+                                    icon: <Facebook className="w-full h-full" />,
+                                    image: "https://upload.wikimedia.org/wikipedia/commons/6/6c/Facebook_Logo_2023.png"
+                                },
+                                {
+                                    id: "instagram",
+                                    label: "Instagram",
+                                    href: "#",
+                                    icon: <Instagram className="w-full h-full" />,
+                                    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png"
+                                },
+                                {
+                                    id: "youtube",
+                                    label: "Youtube",
+                                    href: "#",
+                                    icon: <Youtube className="w-full h-full" />,
+                                    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/1024px-YouTube_full-color_icon_%282017%29.svg.png"
+                                },
+                            ]}
+                            className="pt-4"
+                            iconClassName="hover:bg-secondary"
+                        />
                     </div>
 
                     {/* Quick Links */}

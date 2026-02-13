@@ -1,7 +1,7 @@
 "use client";
 
 import { Badge } from "@/components/ui/badge";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Church, GraduationCap, FlaskConical, BookOpen, Home, Dumbbell, Sparkles } from "lucide-react";
@@ -78,11 +78,31 @@ export function FacilityGallery() {
     const isHeaderInView = useInView(headerRef, { once: false, margin: "-100px" });
     const isGridInView = useInView(gridRef, { once: false, margin: "-100px" });
 
+    const containerRef = useRef<HTMLElement>(null);
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start end", "end start"]
+    });
+
+    const yBackground = useTransform(scrollYProgress, [0, 1], [0, 100]);
+
     return (
-        <section className="py-24 bg-bg-soft relative overflow-hidden">
+        <section ref={containerRef} className="w-full px-4 py-16 relative overflow-hidden bg-gradient-to-br from-[#E8F3EC] to-white">
             {/* Decorative Elements - Subtle */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-secondary/5 rounded-full blur-3xl" />
+            <div className="absolute inset-0 opacity-[0.05] pointer-events-none"
+                style={{
+                    backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231F7A4C' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4h-6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+                }}
+            />
+
+            <motion.div
+                style={{ y: yBackground }}
+                className="absolute top-0 right-0 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"
+            />
+            <motion.div
+                style={{ y: useTransform(scrollYProgress, [0, 1], [0, -50]) }}
+                className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-primary/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"
+            />
 
             <div className="container px-4 md:px-6 mx-auto relative z-10">
                 <div ref={headerRef} className="text-center max-w-3xl mx-auto mb-16">

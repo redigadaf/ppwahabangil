@@ -53,7 +53,7 @@ export function VisionMission() {
     };
 
     return (
-        <section ref={containerRef} className="py-16 relative overflow-hidden bg-gradient-to-br from-[#E8F3EC] to-white">
+        <section ref={containerRef} className="w-full px-4 py-16 relative overflow-hidden bg-gradient-to-br from-[#E8F3EC] to-white">
             {/* Islamic Geometric Pattern Overlay */}
             <div className="absolute inset-0 opacity-[0.05] pointer-events-none"
                 style={{
@@ -127,7 +127,7 @@ export function VisionMission() {
                                         <div className="absolute inset-0 bg-gradient-to-br from-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                                         {/* Background Number */}
-                                        <div className="absolute -right-8 -bottom-12 text-[9rem] font-black text-primary/5 group-hover:text-primary/10 transition-all duration-500 ease-out select-none pointer-events-none translate-y-10 group-hover:translate-y-0 rotate-12">
+                                        <div className="absolute -right-8 -bottom-12 text-[9rem] font-black text-primary/0 group-hover:text-primary/10 transition-all duration-500 ease-out select-none pointer-events-none translate-y-10 group-hover:translate-y-0 rotate-12">
                                             {index + 1}
                                         </div>
 

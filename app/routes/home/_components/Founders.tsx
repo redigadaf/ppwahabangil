@@ -24,7 +24,7 @@ const founders = [
 
 export function Founders() {
     return (
-        <section className="py-10 relative overflow-hidden">
+        <section className="w-full py-10 relative overflow-hidden">
             <div className="container relative z-10 mx-auto px-4">
                 <div className="relative text-center max-w-3xl mx-auto mb-10 z-10">
                     <motion.div

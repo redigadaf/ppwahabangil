@@ -53,7 +53,7 @@ export function Hero() {
     };
 
     return (
-        <section ref={targetRef} className="relative w-full h-[100dvh] flex flex-col justify-between overflow-hidden bg-white text-text-main">
+        <section ref={targetRef} className="relative w-full px-4 py-16 flex flex-col justify-between overflow-hidden bg-white text-text-main">
 
             {/* --- Background Elements with Parallax --- */}
 
