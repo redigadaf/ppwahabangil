@@ -166,16 +166,15 @@ export function Extracurriculars() {
                                         {/* Top corner sparkle */}
                                         <div className="flex justify-between items-start">
                                             <Badge
-                                                className={`bg-gradient-to-r ${activity.color} text-white shadow-lg border-none ${isLarge ? "px-4 py-1.5 text-sm" : "px-3 py-1 text-xs"}`}
+                                                className={`bg-gradient-to-r ${activity.color} text-white shadow-lg border-none px-3 py-1 text-xs`}
                                             >
                                                 {activity.category}
                                             </Badge>
-                                            {isLarge}
                                         </div>
 
                                         {/* Bottom content */}
                                         <div>
-                                            <h3 className={`font-bold text-white mb-2 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 drop-shadow-lg ${isLarge ? "text-2xl md:text-3xl" : "text-xl md:text-2xl"}`}>
+                                            <h3 className={`font-bold text-white mb-2 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 drop-shadow-lg text-xl md:text-2xl`}>
                                                 {activity.title}
                                             </h3>
 

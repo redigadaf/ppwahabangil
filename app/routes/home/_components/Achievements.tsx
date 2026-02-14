@@ -22,7 +22,7 @@ const achievements: Achievement[] = [
         level: "Tingkat Nasional",
         description: "Meraih juara umum pada Musabaqah Qiraatil Kutub tingkat nasional di Jambi.",
         icon: Trophy,
-        image: "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?q=80&w=2070&auto=format&fit=crop", // Student holding trophy
+        image: "/assets/foto1.jpg", // Student holding trophy
         color: "from-yellow-500 to-amber-600"
     },
     {
@@ -31,7 +31,7 @@ const achievements: Achievement[] = [
         level: "Penghargaan Khusus",
         description: "Penghargaan sebagai sekolah berbasis pesantren terbaik dalam implementasi kurikulum merdeka.",
         icon: Crown,
-        image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=2070&auto=format&fit=crop", // Graduation/Certificate
+        image: "/assets/foto2.jpg", // Graduation/Certificate
         color: "from-purple-500 to-indigo-600"
     },
     {
@@ -40,7 +40,7 @@ const achievements: Achievement[] = [
         level: "Program Tahfidz",
         description: "Konsisten mencetak lebih dari 30 santri penghafal Al-Qur'an 30 juz setiap tahunnya.",
         icon: Star,
-        image: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?q=80&w=2069&auto=format&fit=crop", // Group of students
+        image: "/assets/foto1.jpg", // Group of students
         color: "from-emerald-500 to-teal-600"
     },
     {
@@ -49,7 +49,7 @@ const achievements: Achievement[] = [
         level: "Tingkat Provinsi",
         description: "Medali emas pada Olimpiade Sains Nasional (OSN) bidang Matematika tingkat provinsi.",
         icon: Medal,
-        image: "https://images.unsplash.com/photo-1564325724739-bae0bd08762c?q=80&w=2070&auto=format&fit=crop", // Receiving award
+        image: "/assets/foto2.jpg", // Receiving award
         color: "from-blue-500 to-cyan-600"
     }
 ];

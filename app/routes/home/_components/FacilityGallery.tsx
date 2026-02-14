@@ -10,7 +10,7 @@ const facilities = [
     {
         title: "Masjid Jami'",
         category: "Ibadah",
-        image: "https://images.unsplash.com/photo-1564121211835-e88c852648ab?q=80&w=1470&auto=format&fit=crop",
+        image: "https://media.istockphoto.com/id/172196830/id/foto/pemandangan-indah-di-masjid-asy-syakirin-dengan-menara-petronas.webp?a=1&b=1&s=612x612&w=0&k=20&c=DHkIozibde5pGQy1lDFsUsSrw9t4S6I-iHtf2NatqM4=",
         description: "Pusat kegiatan ibadah dan kajian kitab kuning santri.",
         icon: Church,
     },
@@ -185,7 +185,7 @@ export function FacilityGallery() {
                                 <div className="aspect-[4/3] w-full overflow-hidden relative">
                                     <div
                                         className="h-full w-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                                        style={{ backgroundImage: `url(${facility.image})` }}
+                                        style={{ backgroundImage: `url('${facility.image}')` }}
                                     />
                                     {/* Subtle Gradient Overlay - Image tetap terlihat */}
                                     <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

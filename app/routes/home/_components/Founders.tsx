@@ -112,7 +112,7 @@ export function Founders() {
                                         <h3 className="text-2xl font-black text-gray-800 mb-1">
                                             {founder.name}
                                         </h3>
-                                        <div className={`inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4 ${isGreen ? 'bg-primary/10 text-primary' : 'bg-secondary/10 text-secondary-dark'}`}>
+                                        <div className={`inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4 ${isGreen ? 'bg-primary/10 text-primary' : 'bg-secondary/10 text-secondary'}`}>
                                             {founder.role}
                                         </div>
                                         <p className="text-text-muted text-sm leading-relaxed mb-4">
