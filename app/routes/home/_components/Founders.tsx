@@ -9,7 +9,6 @@ const founders = [
         role: "Pendiri",
         image: "/assets/ustadz.png",
         description: "Ulama kharismatik yang mendedikasikan hidupnya untuk pendidikan umat.",
-        emoji: "👳‍♂️",
         theme: "green"
     },
     {
@@ -17,7 +16,6 @@ const founders = [
         role: "Co-Founder",
         image: "/assets/ustadzah.png", // Placeholder
         description: "Sosok ibu yang penuh kasih, pembimbing santriwati dengan keteladanan.",
-        emoji: "🧕",
         theme: "yellow"
     }
 ];
@@ -99,10 +97,6 @@ export function Founders() {
                                                     fill
                                                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                                                 />
-                                            </div>
-                                            {/* Floating Emoji */}
-                                            <div className="absolute bottom-1 right-2 w-10 h-10 bg-white rounded-full flex items-center justify-center text-2xl shadow-md border border-gray-100 animate-bounce-slow">
-                                                {founder.emoji}
                                             </div>
                                         </div>
                                     </div>

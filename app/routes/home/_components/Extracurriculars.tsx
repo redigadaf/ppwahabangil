@@ -19,7 +19,7 @@ const activities: Activity[] = [
     {
         title: "Pramuka",
         category: "Kepemimpinan",
-        image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1470&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?q=80&w=1470&auto=format&fit=crop",
         color: "from-primary to-primary-dark"
     },
     {

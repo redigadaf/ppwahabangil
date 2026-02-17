@@ -64,10 +64,10 @@ export function Footer() {
                         </h3>
                         <ul className="space-y-3 text-sm text-white/80">
                             <li>
-                                <Link href="#" className="hover:text-secondary hover:scale-105 transition-all duration-300 flex items-center gap-2 group relative">
+                                <Link href="/routes/home" className="hover:text-secondary hover:scale-105 transition-all duration-300 flex items-center gap-2 group relative">
                                     <span className="w-1.5 h-1.5 rounded-full bg-secondary/50"></span>
                                     <span className="relative">
-                                        Tentang Kami
+                                        Home
                                         <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
                                     </span>
                                 </Link>
@@ -76,7 +76,7 @@ export function Footer() {
                                 <Link href="#" className="hover:text-secondary hover:scale-105 transition-all duration-300 flex items-center gap-2 group relative">
                                     <span className="w-1.5 h-1.5 rounded-full bg-secondary/50"></span>
                                     <span className="relative">
-                                        Program Pendidikan
+                                        About
                                         <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
                                     </span>
                                 </Link>
@@ -85,7 +85,7 @@ export function Footer() {
                                 <Link href="#" className="hover:text-secondary hover:scale-105 transition-all duration-300 flex items-center gap-2 group relative">
                                     <span className="w-1.5 h-1.5 rounded-full bg-secondary/50"></span>
                                     <span className="relative">
-                                        Pendaftaran Siswa Baru
+                                        Programs
                                         <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
                                     </span>
                                 </Link>
@@ -94,7 +94,7 @@ export function Footer() {
                                 <Link href="#" className="hover:text-secondary hover:scale-105 transition-all duration-300 flex items-center gap-2 group relative">
                                     <span className="w-1.5 h-1.5 rounded-full bg-secondary/50"></span>
                                     <span className="relative">
-                                        Berita & Artikel
+                                        Admissions
                                         <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
                                     </span>
                                 </Link>
@@ -103,7 +103,7 @@ export function Footer() {
                                 <Link href="#" className="hover:text-secondary hover:scale-105 transition-all duration-300 flex items-center gap-2 group relative">
                                     <span className="w-1.5 h-1.5 rounded-full bg-secondary/50"></span>
                                     <span className="relative">
-                                        Galeri Kegiatan
+                                        Contact
                                         <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
                                     </span>
                                 </Link>

@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Church, GraduationCap, FlaskConical, BookOpen, Home, Dumbbell, Sparkles } from "lucide-react";
+import { MoonStar, GraduationCap, FlaskConical, BookOpen, Home, Dumbbell, Sparkles } from "lucide-react";
 
 const facilities = [
     {
@@ -12,7 +12,7 @@ const facilities = [
         category: "Ibadah",
         image: "https://media.istockphoto.com/id/172196830/id/foto/pemandangan-indah-di-masjid-asy-syakirin-dengan-menara-petronas.webp?a=1&b=1&s=612x612&w=0&k=20&c=DHkIozibde5pGQy1lDFsUsSrw9t4S6I-iHtf2NatqM4=",
         description: "Pusat kegiatan ibadah dan kajian kitab kuning santri.",
-        icon: Church,
+        icon: MoonStar,
     },
     {
         title: "Gedung Sekolah Modern",
@@ -45,7 +45,7 @@ const facilities = [
     {
         title: "Lapangan Olahraga",
         category: "Ekstrakurikuler",
-        image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1470&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1551958219-acbc608c6377?q=80&w=1470&auto=format&fit=crop",
         description: "Area futsal, basket, dan voli untuk menjaga kebugaran santri.",
         icon: Dumbbell,
     },
@@ -142,9 +142,14 @@ export function FacilityGallery() {
                             type: "spring",
                             bounce: 0.3
                         }}
-                        className="text-3xl md:text-5xl font-bold tracking-tight text-primary mb-4"
+                        className="text-4xl md:text-5xl font-bold tracking-tight text-primary mb-6"
                     >
-                        Fasilitas Unggulan
+                        Fasilitas <span className="text-secondary relative inline-block">
+                            Unggulan
+                            <svg className="absolute w-full h-3 -bottom-1 left-0 text-secondary/40" viewBox="0 0 100 10" preserveAspectRatio="none">
+                                <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="3" fill="none" />
+                            </svg>
+                        </span>
                     </motion.h2>
 
                     <motion.p

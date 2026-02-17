@@ -12,11 +12,12 @@ export function Hero() {
         offset: ["start start", "end start"],
     });
 
-    const yBackground = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-    const opacityBackground = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-    const scaleImage = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
-    const yText = useTransform(scrollYProgress, [0, 1], ["0%", "-50%"]);
-    const opacityContent = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+    // Adjusted Parallax values for better visibility on scroll
+    const yBackground = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+    const opacityBackground = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+    const scaleImage = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
+    const yText = useTransform(scrollYProgress, [0, 1], ["0%", "10%"]); // Reduced movement
+    const opacityContent = useTransform(scrollYProgress, [0.5, 1], [1, 0]); // Fade out much later
 
     // Variants for stagger animation
     const containerVariants: Variants = {
@@ -24,43 +25,43 @@ export function Hero() {
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.2, // Jeda antar elemen
+                staggerChildren: 0.15,
                 delayChildren: 0.1,
             },
         },
     };
 
     const itemVariants: Variants = {
-        hidden: { y: 30, opacity: 0 },
+        hidden: { y: 20, opacity: 0 },
         visible: {
             y: 0,
             opacity: 1,
             transition: {
                 type: "spring",
                 stiffness: 100,
-                damping: 10,
+                damping: 15, // Smoother damping
             },
         },
     };
 
     const badgeVariants: Variants = {
-        hidden: { scale: 0, opacity: 0 },
+        hidden: { scale: 0.8, opacity: 0 },
         visible: {
             scale: 1,
             opacity: 1,
-            transition: { type: "spring", stiffness: 200, damping: 15 },
+            transition: { type: "spring", stiffness: 200, damping: 20 },
         },
     };
 
     return (
-        <section ref={targetRef} className="relative w-full px-4 py-16 flex flex-col justify-between overflow-hidden bg-white text-text-main">
+        <section ref={targetRef} className="relative w-full h-[100dvh] overflow-hidden bg-white text-text-main flex flex-col items-center pt-24 md:pt-32 pb-8">
 
             {/* --- Background Elements with Parallax --- */}
 
             {/* Top Green Geometric Background */}
             <motion.div
                 style={{ y: yBackground, opacity: opacityBackground }}
-                className="absolute top-0 left-0 w-full h-[60vh] bg-primary z-0"
+                className="absolute top-0 left-0 w-full h-[60%] bg-primary z-0"
             >
                 {/* CSS Pattern Overlay (Grid) */}
                 <div className="absolute inset-0 opacity-8"
@@ -88,18 +89,17 @@ export function Hero() {
 
             {/* --- Main Content --- */}
 
-            <div className="container relative z-10 px-4 md:px-6 mx-auto flex flex-col items-center justify-center h-full pt-16 md:pt-20">
+            <div className="container relative z-10 px-4 mx-auto flex flex-col items-center h-full gap-[3vh]">
 
                 {/* 1. Header Area (Badge) */}
                 <motion.div
                     initial={{ y: -50, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    viewport={{ once: false, amount: 0.5 }} // Re-animate on scroll
-                    transition={{ delay: 0.2, type: "spring" }}
-                    className="absolute top-20 right-4 md:top-24 md:right-8 lg:right-4 flex items-center gap-2 bg-white/10 backdrop-blur-md p-1.5 rounded-lg border border-white/20 shadow-lg z-20 hover:bg-white/20 transition-colors"
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.5, type: "spring" }}
+                    className="absolute right-4 top-4 md:right-8 md:top-8 flex items-center gap-2 bg-white/10 backdrop-blur-md p-1.5 rounded-lg border border-white/20 shadow-lg z-20 hover:bg-white/20 transition-colors"
                 >
                     <Image src="/logo.svg" alt="Logo" width={32} height={32} className="w-8 h-8 drop-shadow-md" />
-                    <div className="text-white text-[10px] md:text-xs font-medium leading-tight text-right drop-shadow-md">
+                    <div className="text-white text-[10px] md:text-xs font-medium leading-tight text-right drop-shadow-md hidden sm:block">
                         <span className="block font-bold">PP Waha Bangil</span>
                         <span className="opacity-90">Program Unggulan</span>
                     </div>
@@ -108,10 +108,9 @@ export function Hero() {
                 {/* 1b. Accreditation Badge - Top Left (Opposite Logo) */}
                 <motion.div
                     initial={{ y: -50, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    viewport={{ once: false, amount: 0.5 }}
-                    transition={{ delay: 0.3, type: "spring" }}
-                    className="absolute top-20 left-4 md:top-24 md:left-8 lg:left-4 flex items-center gap-2 bg-white text-primary px-4 py-1.5 rounded-full shadow-lg z-20 cursor-pointer hover:scale-110 transition-transform border border-gray-100"
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.6, type: "spring" }}
+                    className="absolute top-6 left-4 md:top-10 md:left-8 flex items-center gap-2 bg-white text-primary px-4 py-1.5 rounded-full shadow-lg z-20 cursor-pointer hover:scale-110 transition-transform border border-gray-100"
                 >
                     <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
                     <span className="text-xs md:text-sm font-bold">Terakreditasi A</span>
@@ -119,15 +118,15 @@ export function Hero() {
 
                 {/* 2. Center Image (Focal Point) - Scaled with VH */}
                 <motion.div
-                    style={{ scale: scaleImage, opacity: opacityContent }} // Parallax Scale Effect
-                    className="relative z-10 flex items-center justify-center mb-4 md:mb-6 perspective-1000"
+                    style={{ scale: scaleImage }} // Parallax Scale Effect
+                    className="relative z-10 flex items-center justify-center pt-4 md:pt-0 perspective-1000"
                 >
                     <motion.div
                         initial={{ rotateY: 90, opacity: 0 }}
                         whileInView={{ rotateY: 0, opacity: 1 }}
-                        viewport={{ once: false }}
+                        viewport={{ once: true }}
                         transition={{ duration: 0.8, type: "spring" }}
-                        className="relative w-[35vh] h-[35vh] md:w-[45vh] md:h-[45vh] flex items-center justify-center"
+                        className="relative w-[34vh] h-[34vh] md:w-[42vh] md:h-[42vh] flex items-center justify-center"
                     >
                         {/* Rotating Background Shapes */}
                         <motion.div
@@ -161,22 +160,22 @@ export function Hero() {
                 <motion.div
                     variants={containerVariants}
                     initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: false, margin: "-100px" }} // Re-trigger when scroll
-                    style={{ y: yText, opacity: opacityContent }} // Parallax scroll
-                    className="text-center relative z-20 max-w-5xl mx-auto -mt-2 md:-mt-6 px-4 flex flex-col items-center"
+                    animate="visible"
+                    style={{ y: yText }} // Parallax scroll
+                    className="text-center relative z-20 max-w-5xl mx-auto -mt-2 px-4 flex flex-col items-center"
                 >
-                    <motion.div variants={badgeVariants} className="mb-1 md:mb-2">
-                        <span className="bg-white/70 text-primary px-4 py-1 md:px-5 md:py-2 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-widest border border-gray-100 shadow-md inline-flex items-center gap-2 hover:bg-white transition-colors">
+                    <motion.div variants={badgeVariants} className="mb-2 md:mb-3">
+                        <span className="bg-white/70 text-primary px-3 py-1 md:px-5 md:py-2 rounded-full text-[10px] md:text-sm font-bold uppercase tracking-widest border border-gray-100 shadow-md inline-flex items-center gap-2 hover:bg-white transition-colors">
                             Pondok Pesantren Modern
                         </span>
                     </motion.div>
 
-                    <motion.div variants={itemVariants} className="relative z-10">
-                        <h1 className="text-5xl md:text-7xl lg:text-8xl xl:text-[8rem] font-black text-white italic tracking-tighter leading-none pb-2 drop-shadow-xl select-none transition-transform hover:scale-[1.02] duration-300"
+                    <motion.div variants={itemVariants} className="relative z-10 w-full">
+                        <h1 className="font-black text-white italic tracking-tighter leading-none pb-2 drop-shadow-xl select-none transition-transform hover:scale-[1.01] duration-300"
                             style={{
-                                textShadow: "3px 3px 0 #1F7A4C, 5px 5px 0 #D4A017",
-                                WebkitTextStroke: "1.5px #1F7A4C",
+                                fontSize: "clamp(3rem, 11vh, 7rem)",
+                                textShadow: "0.03em 0.03em 0 #1F7A4C, 0.05em 0.05em 0 #D4A017",
+                                WebkitTextStroke: "1px #1F7A4C",
                                 paintOrder: "stroke fill"
                             }}
                         >
@@ -190,7 +189,7 @@ export function Hero() {
                                 y: [0, -5, 0]
                             }}
                             transition={{ duration: 3, repeat: Infinity }}
-                            className="absolute -top-2 -right-4 md:-top-4 md:-right-8 text-3xl md:text-5xl text-secondary z-[-1] inline-block"
+                            className="absolute -top-2 -right-[5%] md:-top-4 md:-right-8 text-2xl md:text-5xl text-secondary z-[-1] inline-block"
                         >
                             ✦
                         </motion.span>
@@ -198,13 +197,31 @@ export function Hero() {
 
                     <motion.p
                         variants={itemVariants}
-                        className="text-text-muted text-sm md:text-lg lg:text-xl font-medium max-w-xl mx-auto -mt-1 leading-relaxed"
+                        className="text-text-muted text-sm md:text-lg font-medium max-w-lg mx-auto mt-2 leading-relaxed mb-4"
                     >
                         Membangun Karakter Islami, <span className="relative inline-block px-1 ml-1 group cursor-default">
                             <span className="absolute inset-0 bg-secondary/20 -skew-x-6 rounded-sm transition-transform group-hover:skew-x-0"></span>
                             <span className="relative text-primary-dark font-bold">Mencerdaskan Generasi</span>
                         </span>
                     </motion.p>
+
+                    <motion.div variants={itemVariants}>
+                        <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="bg-primary text-white font-bold py-2 px-8 rounded-full shadow-lg hover:bg-primary-dark hover:shadow-xl transition-all duration-300 flex items-center gap-2 group"
+                        >
+                            <span>Daftar Sekarang</span>
+                            <svg
+                                className="w-5 h-5 transform group-hover:translate-x-1 transition-transform"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                            </svg>
+                        </motion.button>
+                    </motion.div>
 
 
                 </motion.div>

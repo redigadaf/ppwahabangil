@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView, useScroll, useTransform, Variants } from "framer-motion";
-import { Trophy, Medal, Star, Crown, Calendar, Award } from "lucide-react";
+import { Trophy, Medal, Star, Crown, Calendar, Sparkles } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 interface Achievement {
@@ -10,46 +10,41 @@ interface Achievement {
     year: string;
     level: string;
     description: string;
-    icon: any;
     image: string;
-    color: string;
+    color: string; // Keep for fallback or accents
 }
 
 const achievements: Achievement[] = [
     {
-        title: "Juara Umum MQK Nasional",
+        title: "Hanum",
         year: "2023",
         level: "Tingkat Nasional",
-        description: "Meraih juara umum pada Musabaqah Qiraatil Kutub tingkat nasional di Jambi.",
-        icon: Trophy,
-        image: "/assets/foto1.jpg", // Student holding trophy
+        description: "Juara umum pada Musabaqah Qiraatil Kutub tingkat nasional di Jambi.",
+        image: "/assets/foto1.jpg", // Student holding book/trophy
         color: "from-yellow-500 to-amber-600"
     },
     {
-        title: "Best Pesantren Based School",
+        title: "Nisa",
         year: "2022",
         level: "Penghargaan Khusus",
-        description: "Penghargaan sebagai sekolah berbasis pesantren terbaik dalam implementasi kurikulum merdeka.",
-        icon: Crown,
-        image: "/assets/foto2.jpg", // Graduation/Certificate
+        description: "Penghargaan sebagai santri teladan dalam bidang akademik dan akhlak.",
+        image: "/assets/foto2.jpg",
         color: "from-purple-500 to-indigo-600"
     },
     {
-        title: "30+ Hafidz per Tahun",
+        title: "Siti",
         year: "Setiap Tahun",
         level: "Program Tahfidz",
-        description: "Konsisten mencetak lebih dari 30 santri penghafal Al-Qur'an 30 juz setiap tahunnya.",
-        icon: Star,
-        image: "/assets/foto1.jpg", // Group of students
+        description: "Hafidzah 30 Juz dengan predikat mumtaz.",
+        image: "/assets/foto1.jpg",
         color: "from-emerald-500 to-teal-600"
     },
     {
-        title: "Juara 1 Olimpiade Sains",
+        title: "Kartika",
         year: "2024",
         level: "Tingkat Provinsi",
-        description: "Medali emas pada Olimpiade Sains Nasional (OSN) bidang Matematika tingkat provinsi.",
-        icon: Medal,
-        image: "/assets/foto2.jpg", // Receiving award
+        description: "Peraih medali emas Olimpiade Sains Nasional (OSN) bidang Matematika.",
+        image: "/assets/foto2.jpg",
         color: "from-blue-500 to-cyan-600"
     }
 ];
@@ -65,16 +60,26 @@ const containerVariants: Variants = {
 };
 
 const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 50, rotate: -5 },
     visible: {
         opacity: 1,
         y: 0,
+        rotate: 0,
         transition: {
-            duration: 0.6,
-            ease: "easeOut"
+            type: "spring",
+            stiffness: 100,
+            damping: 15
         }
     }
 };
+
+// Simple PaperClip SVG Component
+const PaperClip = ({ className }: { className?: string }) => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+        <path d="M13.234 20.252 21 12.3" />
+        <path d="m16 6-8.414 8.586a2 2 0 0 0 0 2.828 2 2 0 0 0 2.828 0l8.414-8.586a4 4 0 0 0 0-5.656 4 4 0 0 0-5.656 0l-8.415 8.585a6 6 0 1 0 8.486 8.486" />
+    </svg>
+);
 
 export function Achievements() {
     const containerRef = useRef<HTMLElement>(null);
@@ -86,18 +91,20 @@ export function Achievements() {
     const yBackground = useTransform(scrollYProgress, [0, 1], [0, 100]);
 
     const headerRef = useRef(null);
-    const gridRef = useRef(null);
     const isHeaderInView = useInView(headerRef, { once: false, margin: "-100px" });
-    const isGridInView = useInView(gridRef, { once: false, margin: "-100px" });
+    const gridRef = useRef(null);
+    const isGridInView = useInView(gridRef, { once: true, margin: "-50px" }); // changed to once: true for smoother UX
+
+    // Background patterns
+    const bgPattern = {
+        backgroundImage: `linear-gradient(#cbd5e1 1px, transparent 1px), linear-gradient(90deg, #cbd5e1 1px, transparent 1px)`,
+        backgroundSize: '24px 24px'
+    };
 
     return (
-        <section ref={containerRef} className="w-full px-4 py-16 relative overflow-hidden bg-gradient-to-br from-[#E8F3EC] to-white">
-            {/* Background Patterns */}
-            <div className="absolute inset-0 opacity-[0.05] pointer-events-none"
-                style={{
-                    backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231F7A4C' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4h-6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-                }}
-            />
+        <section ref={containerRef} className="w-full px-4 py-20 relative overflow-hidden bg-bg-soft">
+            {/* Background Decor */}
+            <div className="absolute inset-0 opacity-[0.4] pointer-events-none mix-blend-multiply" style={bgPattern}></div>
 
             <motion.div
                 style={{ y: yBackground }}
@@ -108,108 +115,173 @@ export function Achievements() {
                 className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-primary/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"
             />
 
-            <div className="container px-4 md:px-6 mx-auto relative z-10">
-                {/* Header Section */}
+            <div className="container px-4 mx-auto relative z-10">
                 <div ref={headerRef} className="text-center max-w-3xl mx-auto mb-16">
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                        transition={{ duration: 0.6 }}
+                        initial={{ opacity: 0, scale: 0.8, y: -20 }}
+                        animate={isHeaderInView ? {
+                            opacity: 1,
+                            scale: 1,
+                            y: 0,
+                        } : {
+                            opacity: 0,
+                            scale: 0.8,
+                            y: -20
+                        }}
+                        transition={{
+                            duration: 0.6,
+                            type: "spring",
+                            bounce: 0.4
+                        }}
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-primary/20 mb-6 shadow-sm"
                     >
-                        <div className="inline-flex items-center justify-center px-4 py-2 bg-white rounded-full mb-6 backdrop-blur-sm border border-primary/20">
-                            <span className="text-sm font-semibold text-primary">Prestasi Santri</span>
-                        </div>
-                        <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-primary mb-6">
-                            Bukti Nyata <span className="text-yellow-600 relative inline-block">
-                                Keunggulan
-                                <svg className="absolute w-full h-3 -bottom-1 left-0 text-yellow-400/40" viewBox="0 0 100 10" preserveAspectRatio="none">
-                                    <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="3" fill="none" />
-                                </svg>
-                            </span>
-                        </h2>
-                        <p className="text-lg text-muted-foreground font-medium leading-relaxed">
-                            Dedikasi kami dalam mencetak generasi unggul yang berprestasi di kancah nasional maupun internasional, membuktikan kualitas pendidikan kami.
-                        </p>
+                        <span className="text-sm font-semibold text-primary">Prestasi Santri</span>
                     </motion.div>
+
+                    <motion.h2
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={isHeaderInView ? {
+                            opacity: 1,
+                            y: 0,
+                        } : {
+                            opacity: 0,
+                            y: 30
+                        }}
+                        transition={{
+                            duration: 0.7,
+                            delay: 0.2,
+                            type: "spring",
+                            bounce: 0.3
+                        }}
+                        className="text-4xl md:text-5xl font-bold tracking-tight text-primary mb-6"
+                    >
+                        Hall of <span className="text-secondary relative inline-block">
+                            Fame
+                            <svg className="absolute w-full h-3 -bottom-1 left-0 text-secondary/40" viewBox="0 0 100 10" preserveAspectRatio="none">
+                                <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="3" fill="none" />
+                            </svg>
+                        </span>
+                    </motion.h2>
+
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={isHeaderInView ? {
+                            opacity: 1,
+                            y: 0,
+                        } : {
+                            opacity: 0,
+                            y: 20
+                        }}
+                        transition={{
+                            duration: 0.6,
+                            delay: 0.4
+                        }}
+                        className="text-lg text-text-muted"
+                    >
+                        Catatan prestasi dan kebanggaan kami dalam mencetak generasi unggul yang berkualitas.
+                    </motion.p>
                 </div>
 
-                {/* Achievements Grid */}
                 <motion.div
                     ref={gridRef}
                     variants={containerVariants}
                     initial="hidden"
-                    animate={isGridInView ? "visible" : "hidden"}
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+                    whileInView="visible"
+                    viewport={{ once: false, amount: 0.2 }} // Re-trigger on scroll
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 w-full"
                 >
-                    {achievements.map((item, index) => (
-                        <motion.div
-                            key={index}
-                            variants={itemVariants}
-                            whileHover={{ y: -10 }}
-                            className="group relative h-[400px] rounded-3xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 bg-white"
-                        >
-                            {/* Background Image */}
-                            <div
-                                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                                style={{ backgroundImage: `url(${item.image})` }}
-                            />
+                    {achievements.map((item, index) => {
+                        // Create a pseudo-random rotation between -3 and 3 degrees based on index
+                        const rotation = index % 2 === 0 ? '-rotate-2' : 'rotate-2';
+                        const tapeRotation = index % 2 === 0 ? 'rotate-[-4deg]' : 'rotate-[4deg]';
 
-                            {/* Gradient Overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
+                        return (
+                            <motion.div
+                                key={index}
+                                variants={{
+                                    hidden: { y: 50, opacity: 0, scale: 0.8, rotate: index % 2 === 0 ? -5 : 5 },
+                                    visible: {
+                                        y: 0,
+                                        opacity: 1,
+                                        scale: 1,
+                                        rotate: 0,
+                                        transition: { type: "spring", stiffness: 100, damping: 12 }
+                                    }
+                                }}
+                                whileHover={{ scale: 1.05, rotate: 0, zIndex: 20, transition: { type: "spring", stiffness: 300 } }} // Bouncy hover
+                                className="relative group perspective-1000"
+                            >
+                                {/* Card Container - Realistic Paper Look */}
+                                <div className={`bg-white p-4 pb-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500 ease-out transform ${rotation} hover:rotate-0 relative overflow-visible border border-gray-100`}>
 
-                            {/* Colorful Overlay on Hover - Using Theme Colors */}
-                            <div className={`absolute inset-0 bg-gradient-to-br from-primary/80 to-secondary/80 opacity-0 group-hover:opacity-40 transition-opacity duration-500 mix-blend-overlay`} />
+                                    {/* Grid Pattern on Card - More subtle */}
+                                    <div className="absolute inset-0 opacity-[0.1] pointer-events-none rounded-lg"
+                                        style={{
+                                            backgroundImage: `linear-gradient(var(--color-primary) 1px, transparent 1px), linear-gradient(90deg, var(--color-primary) 1px, transparent 1px)`,
+                                            backgroundSize: '20px 20px'
+                                        }}
+                                    />
 
-                            {/* Floating Icon Badge */}
-                            <div className="absolute top-4 right-4 bg-white/10 backdrop-blur-md border border-white/20 p-2.5 rounded-xl shadow-lg transform group-hover:rotate-12 transition-all duration-300">
-                                <item.icon className="w-6 h-6 text-secondary" />
-                            </div>
-
-                            {/* Content */}
-                            <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                                <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                                    {/* Year & Level Badges */}
-                                    <div className="flex flex-wrap gap-2 mb-3">
-                                        <Badge variant="secondary" className="bg-white/20 hover:bg-white/30 text-white border-none backdrop-blur-sm">
-                                            <Calendar className="w-3 h-3 mr-1" />
-                                            {item.year}
-                                        </Badge>
-                                        <Badge variant="outline" className="text-white border-white/40 bg-black/20 backdrop-blur-sm">
-                                            {item.level}
-                                        </Badge>
+                                    {/* Top Tape - More realistic */}
+                                    <div className={`absolute -top-3 left-1/2 -translate-x-1/2 w-32 h-8 bg-secondary/30 backdrop-blur-[1px] shadow-sm z-20 ${tapeRotation} mask-image:linear-gradient(to right, transparent 2%, black 5%, black 95%, transparent 98%)`}>
+                                        <div className="w-full h-full opacity-30 bg-white/40"></div>
                                     </div>
 
-                                    {/* Title */}
-                                    <h3 className="text-xl font-bold text-white mb-2 leading-tight group-hover:text-secondary-soft transition-colors">
-                                        {item.title}
-                                    </h3>
+                                    {/* Header: Number & Name */}
+                                    <div className="relative z-10 flex items-start justify-between mb-4 px-1 pt-4">
+                                        <h3
+                                            className="text-2xl font-bold text-text-main flex-1 leading-tight"
+                                            style={{ fontFamily: '"Comic Sans MS", "Chalkboard SE", sans-serif' }}
+                                        >
+                                            <span className="text-secondary inline-block mr-1 transform -rotate-12">{index + 1}.</span> {item.title}
+                                        </h3>
 
-                                    {/* Description (Hidden by default, shown on hover/focus) */}
-                                    <div className="h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 overflow-hidden transition-all duration-300 ease-in-out">
-                                        <p className="text-sm text-gray-200 mt-2 leading-relaxed">
-                                            {item.description}
-                                        </p>
+                                        {/* Paper Clip - Floating off edge */}
+                                        <div className="absolute -top-6 -right-2 text-gray-400 transform rotate-45 drop-shadow-md z-30 opacity-80 group-hover:rotate-12 transition-transform duration-300">
+                                            <PaperClip className="w-10 h-10" />
+                                        </div>
+                                    </div>
+
+                                    {/* Image Container - Polariod Style */}
+                                    <div className="relative w-full aspect-[4/5] mx-auto mb-4 bg-white p-2 shadow-sm transform transition-transform duration-500 hover:scale-[1.02]">
+                                        <div className="w-full h-full bg-gray-100 relative overflow-hidden">
+                                            <div
+                                                className="w-full h-full bg-cover bg-center transition-all duration-700 group-hover:scale-110 grayscale-[10%] group-hover:grayscale-0"
+                                                style={{
+                                                    backgroundImage: `url(${item.image})`,
+                                                }}
+                                            />
+                                            {/* Photo Glare */}
+                                            <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-white/10 to-transparent skew-x-12 opacity-50 pointer-events-none" />
+                                        </div>
+                                    </div>
+
+                                    {/* Metadata / Description - Handwritten feel */}
+                                    <div className="relative px-2 pt-2">
+                                        {/* Badges as "Stamps" */}
+                                        <div className="flex flex-wrap gap-2 mb-3 justify-start transform -rotate-1 group-hover:rotate-0 transition-transform duration-300">
+                                            <span className="px-3 py-1 bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider rounded-sm border border-primary/20 shadow-sm">
+                                                {item.year}
+                                            </span>
+                                            <span className="px-3 py-1 bg-secondary/10 text-secondary text-xs font-bold uppercase tracking-wider rounded-sm border border-secondary/20 shadow-sm">
+                                                {item.level}
+                                            </span>
+                                        </div>
+
+                                        <div className="relative">
+                                            {/* Line decoration for text */}
+                                            <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-10"
+                                                style={{ backgroundImage: 'repeating-linear-gradient(transparent, transparent 1.5rem, #333 1.5rem, #333 calc(1.5rem + 1px))' }}
+                                            />
+                                            <p className="text-base text-text-muted leading-[1.55rem] font-medium pl-1" style={{ fontFamily: '"Comic Sans MS", "Chalkboard SE", sans-serif' }}>
+                                                {item.description}
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            {/* Border Glow Effect */}
-                            <div className="absolute inset-0 border-2 border-white/0 group-hover:border-secondary/50 rounded-3xl transition-colors duration-300 pointer-events-none" />
-                        </motion.div>
-                    ))}
-                </motion.div>
-
-                {/* Bottom CTA or Decoration */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={isGridInView ? { opacity: 1 } : { opacity: 0 }}
-                    transition={{ delay: 0.8, duration: 0.6 }}
-                    className="mt-16 text-center"
-                >
-                    <div className="inline-flex items-center gap-2 text-primary/60 text-sm font-medium">
-                        <Award className="w-4 h-4" />
-                        <span>Dan masih banyak prestasi lainnya</span>
-                    </div>
+                            </motion.div>
+                        );
+                    })}
                 </motion.div>
             </div>
         </section>
