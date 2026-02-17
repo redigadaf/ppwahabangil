@@ -23,7 +23,7 @@ export function Navbar() {
 
     const navLinks = [
         { name: "Home", href: "/", icon: <Rocket className="w-4 h-4 mr-2" /> },
-        { name: "About", href: "#", icon: <User className="w-4 h-4 mr-2" /> },
+        { name: "About", href: "/routes/about", icon: <User className="w-4 h-4 mr-2" /> },
         { name: "Programs", href: "#", icon: <BookOpen className="w-4 h-4 mr-2" /> },
         { name: "Admissions", href: "#", icon: <Globe className="w-4 h-4 mr-2" /> },
         { name: "Contact", href: "#", icon: <Phone className="w-4 h-4 mr-2" /> },
@@ -95,10 +95,10 @@ export function Navbar() {
                         <Button
                             variant="ghost"
                             className={cn(
-                                "transition-colors duration-300 font-medium",
+                                "transition-all duration-200 font-bold hover:scale-105 active:scale-95 rounded-full px-5",
                                 scrolled
-                                    ? "text-primary hover:text-primary-dark hover:bg-primary/10"
-                                    : "text-white hover:text-secondary hover:bg-white/10"
+                                    ? "text-primary hover:text-white hover:bg-primary"
+                                    : "text-white hover:text-primary-dark hover:bg-white"
                             )}
                             size="sm"
                         >
@@ -106,10 +106,10 @@ export function Navbar() {
                         </Button>
                         <Button
                             className={cn(
-                                "shadow-lg hover:shadow-xl transition-all duration-300 font-bold",
+                                "shadow-lg hover:shadow-2xl transition-all duration-200 font-black hover:scale-110 active:scale-90 hover:-rotate-2 rounded-full px-6",
                                 scrolled
-                                    ? "bg-primary hover:bg-primary-dark text-white"
-                                    : "bg-secondary hover:bg-secondary/90 text-white"
+                                    ? "bg-primary hover:bg-primary-dark text-white ring-2 ring-transparent hover:ring-primary/20"
+                                    : "bg-secondary hover:bg-yellow-400 text-white ring-2 ring-transparent hover:ring-white/50"
                             )}
                             size="sm"
                         >

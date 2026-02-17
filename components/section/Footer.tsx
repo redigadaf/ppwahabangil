@@ -73,7 +73,7 @@ export function Footer() {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#" className="hover:text-secondary hover:scale-105 transition-all duration-300 flex items-center gap-2 group relative">
+                                <Link href="/routes/about" className="hover:text-secondary hover:scale-105 transition-all duration-300 flex items-center gap-2 group relative">
                                     <span className="w-1.5 h-1.5 rounded-full bg-secondary/50"></span>
                                     <span className="relative">
                                         About
