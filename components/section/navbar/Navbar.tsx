@@ -24,7 +24,7 @@ export function Navbar() {
     const navLinks = [
         { name: "Home", href: "/", icon: <Rocket className="w-4 h-4 mr-2" /> },
         { name: "About", href: "/routes/about", icon: <User className="w-4 h-4 mr-2" /> },
-        { name: "Programs", href: "#", icon: <BookOpen className="w-4 h-4 mr-2" /> },
+        { name: "Programs", href: "/routes/programs", icon: <BookOpen className="w-4 h-4 mr-2" /> },
         { name: "Admissions", href: "#", icon: <Globe className="w-4 h-4 mr-2" /> },
         { name: "Contact", href: "#", icon: <Phone className="w-4 h-4 mr-2" /> },
     ];

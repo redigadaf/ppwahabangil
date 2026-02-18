@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, Variants, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+
 import { Badge } from "@/components/ui/badge";
 import { Star } from "lucide-react";
 
@@ -28,21 +28,17 @@ const itemVariants: Variants = {
 };
 
 export function AboutHero() {
-    const ref = useRef(null);
-    const { scrollYProgress } = useScroll({
-        target: ref,
-        offset: ["start start", "end start"]
-    });
+    const { scrollY } = useScroll();
 
-    const yBackground = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-    const yText = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-    const opacityText = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-    const rotateShape = useTransform(scrollYProgress, [0, 1], [0, 360]);
-    const yShape1 = useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]);
-    const yShape2 = useTransform(scrollYProgress, [0, 1], ["0%", "-60%"]);
+    const yBackground = useTransform(scrollY, [0, 500], ["0%", "50%"]);
+    const yText = useTransform(scrollY, [0, 300], ["0%", "-50%"]);
+    const opacityText = useTransform(scrollY, [0, 300], [1, 0]);
+    const rotateShape = useTransform(scrollY, [0, 500], [0, 360]);
+    const yShape1 = useTransform(scrollY, [0, 500], ["0%", "-30%"]);
+    const yShape2 = useTransform(scrollY, [0, 500], ["0%", "-60%"]);
 
     return (
-        <section ref={ref} className="relative w-full h-[80vh] min-h-[600px] flex items-center justify-center overflow-hidden bg-primary px-4">
+        <section className="relative w-full h-[80vh] min-h-[600px] flex items-center justify-center overflow-hidden bg-primary px-4">
 
             {/* 1. Dynamic Background with Parallax */}
             <motion.div
@@ -104,66 +100,70 @@ export function AboutHero() {
 
             {/* 3. Main Content with Parallax */}
             <motion.div
-                className="container relative z-10 flex flex-col items-center text-center"
-                variants={containerVariants}
-                initial="hidden"
-                animate="visible"
+                className="container relative z-10"
                 style={{ y: yText, opacity: opacityText }}
             >
-
                 <motion.div
-                    variants={itemVariants}
-                    className="mb-8 relative inline-block group"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                    className="flex flex-col items-center text-center"
+                    variants={containerVariants}
+                    initial="hidden"
+                    animate="visible"
                 >
 
-
-                    <Badge variant="outline" className="relative px-6 py-2.5 border-yellow-200/30 bg-emerald-900/30 text-white backdrop-blur-md rounded-full shadow-2xl text-sm md:text-base font-semibold tracking-wide gap-3 hover:bg-emerald-900/40 transition-all duration-300 flex items-center ring-1 ring-white/10">
-                        <span className="relative flex h-2.5 w-2.5">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-yellow-500"></span>
-                        </span>
-                        <span className="bg-gradient-to-r from-yellow-100 to-white bg-clip-text text-transparent">
-                            Tentang Pondok Pesantren KHA. Wahid Hasyim Bangil
-                        </span>
-                    </Badge>
-
-                    {/* Floating Star Decoration */}
                     <motion.div
-                        animate={{ rotate: [0, 10, -10, 0], scale: [1, 1.2, 1] }}
-                        transition={{ repeat: Infinity, duration: 3, repeatDelay: 1 }}
-                        className="absolute -top-3 -right-3 text-secondary"
+                        variants={itemVariants}
+                        className="mb-8 relative inline-block group"
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
                     >
-                        <Star className="w-6 h-6 fill-yellow-400 text-yellow-500 drop-shadow-md" />
+
+
+                        <Badge variant="outline" className="relative px-6 py-2.5 border-yellow-200/30 bg-emerald-900/30 text-white backdrop-blur-md rounded-full shadow-2xl text-sm md:text-base font-semibold tracking-wide gap-3 hover:bg-emerald-900/40 transition-all duration-300 flex items-center ring-1 ring-white/10">
+                            <span className="relative flex h-2.5 w-2.5">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-yellow-500"></span>
+                            </span>
+                            <span className="bg-gradient-to-r from-yellow-100 to-white bg-clip-text text-transparent">
+                                Tentang Pondok Pesantren KHA. Wahid Hasyim Bangil
+                            </span>
+                        </Badge>
+
+                        {/* Floating Star Decoration */}
+                        <motion.div
+                            animate={{ rotate: [0, 10, -10, 0], scale: [1, 1.2, 1] }}
+                            transition={{ repeat: Infinity, duration: 3, repeatDelay: 1 }}
+                            className="absolute -top-3 -right-3 text-secondary"
+                        >
+                            <Star className="w-6 h-6 fill-yellow-400 text-yellow-500 drop-shadow-md" />
+                        </motion.div>
                     </motion.div>
+
+                    <motion.h1
+                        variants={itemVariants}
+                        className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight text-white mb-6 drop-shadow-lg leading-[1.1]"
+                    >
+                        Berilmu & <br className="hidden md:block" />
+                        <span className="relative inline-block text-secondary">
+                            Berkarakter
+                            {/* Doodle Underline */}
+                            <svg className="absolute -bottom-3 left-0 w-full h-4 text-white/30" viewBox="0 0 200 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2.00025 7.00005C29.6231 2.37397 101.992 -3.42593 197.999 3.00009" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+                            </svg>
+                        </span>
+                    </motion.h1>
+
+                    <motion.p
+                        variants={itemVariants}
+                        className="max-w-2xl mx-auto mb-16 text-lg md:text-2xl text-white/90 leading-relaxed font-medium"
+                    >
+                        Bukan sekadar Pondok Pesantren, tapi
+                        <span className="relative inline-block mx-2 group">
+                            <span className="absolute inset-0 bg-yellow-400 rounded-lg transform -rotate-2 group-hover:rotate-0 transition-transform duration-300"></span>
+                            <span className="relative font-bold text-primary-dark px-3 py-0.5 z-10 block transform group-hover:scale-105 transition-transform">rumah</span>
+                        </span>
+                        bagi <span className="font-bold text-white decoration-2 decoration-secondary/30 underline-offset-4">generasi cerdas</span> yang menjunjung tinggi <span className="font-serif italic font-bold text-yellow-100">nilai Islami</span>.
+                    </motion.p>
                 </motion.div>
-
-                <motion.h1
-                    variants={itemVariants}
-                    className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight text-white mb-6 drop-shadow-lg leading-[1.1]"
-                >
-                    Berilmu & <br className="hidden md:block" />
-                    <span className="relative inline-block text-secondary">
-                        Berkarakter
-                        {/* Doodle Underline */}
-                        <svg className="absolute -bottom-3 left-0 w-full h-4 text-white/30" viewBox="0 0 200 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2.00025 7.00005C29.6231 2.37397 101.992 -3.42593 197.999 3.00009" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-                        </svg>
-                    </span>
-                </motion.h1>
-
-                <motion.p
-                    variants={itemVariants}
-                    className="max-w-2xl mx-auto mb-16 text-lg md:text-2xl text-white/90 leading-relaxed font-medium"
-                >
-                    Bukan sekadar Pondok Pesantren, tapi
-                    <span className="relative inline-block mx-2 group">
-                        <span className="absolute inset-0 bg-yellow-400 rounded-lg transform -rotate-2 group-hover:rotate-0 transition-transform duration-300"></span>
-                        <span className="relative font-bold text-primary-dark px-3 py-0.5 z-10 block transform group-hover:scale-105 transition-transform">rumah</span>
-                    </span>
-                    bagi <span className="font-bold text-white decoration-2 decoration-secondary/30 underline-offset-4">generasi cerdas</span> yang menjunjung tinggi <span className="font-serif italic font-bold text-yellow-100">nilai Islami</span>.
-                </motion.p>
             </motion.div>
 
             {/* Bottom Wave - Smoother */}
