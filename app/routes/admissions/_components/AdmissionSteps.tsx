@@ -2,6 +2,7 @@
 
 import { motion, Variants } from "framer-motion";
 import { UserPlus, FileText, GraduationCap, CheckCircle } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 const steps = [
     {
@@ -61,33 +62,33 @@ export function AdmissionSteps() {
         <section className="py-24 relative overflow-hidden bg-white">
             <div className="container mx-auto px-6 relative z-10">
                 {/* Section Header */}
-                <div className="text-center mb-20">
-                    <motion.span
-                        initial={{ opacity: 0, y: -20 }}
+                <div className="text-center mb-20 space-y-4">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: false, amount: 0.5 }}
-                        transition={{ duration: 0.5, type: "spring" }}
-                        className="text-secondary font-bold tracking-widest uppercase text-sm mb-2 block"
                     >
-                        Proses Mudah
-                    </motion.span>
-                    <motion.h2
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: false, amount: 0.5 }}
-                        transition={{ duration: 0.5, delay: 0.1, type: "spring" }}
-                        className="text-4xl md:text-5xl font-bold text-primary-dark mb-6"
-                    >
-                        Alur Pendaftaran
-                    </motion.h2>
+                        <Badge variant="secondary" className="px-5 py-1.5 mb-5 text-primary bg-primary/5 border-primary/20 hover:bg-primary/10 transition-colors text-sm font-medium tracking-wide">
+                            Proses Mudah
+                        </Badge>
+                        <h2 className="text-4xl md:text-6xl font-black text-gray-900 tracking-tight">
+                            Alur <span className="text-primary relative">
+                                Pendaftaran
+                                <svg className="absolute w-full h-3 -bottom-1 left-0 text-secondary/30 -z-10" viewBox="0 0 100 10" preserveAspectRatio="none">
+                                    <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="8" fill="none" />
+                                </svg>
+                            </span>
+                        </h2>
+                    </motion.div>
+
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: false, amount: 0.5 }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                        className="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed"
+                        transition={{ delay: 0.1 }}
+                        className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed font-medium"
                     >
-                        Kami merancang proses pendaftaran yang simpel dan transparan.
+                        Kami merancang proses pendaftaran yang simpel, cepat, dan transparan untuk calon santri baru. Mari bergabung bersama kami!
                     </motion.p>
                 </div>
 
