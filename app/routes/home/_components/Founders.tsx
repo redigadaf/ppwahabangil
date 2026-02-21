@@ -7,14 +7,14 @@ const founders = [
     {
         name: "K.H. Abdul Wahab",
         role: "Pendiri",
-        image: "/assets/ustadz.png",
+        image: "https://ui-avatars.com/api/?name=KH+Abdul+Wahab&background=1F7A4C&color=fff&size=256&font-size=0.33&bold=true",
         description: "Ulama kharismatik yang mendedikasikan hidupnya untuk pendidikan umat.",
         theme: "green"
     },
     {
         name: "Nyai Hj. Fatimah",
         role: "Co-Founder",
-        image: "/assets/ustadzah.png", // Placeholder
+        image: "https://ui-avatars.com/api/?name=Nyai+Hj+Fatimah&background=D4A017&color=fff&size=256&font-size=0.33&bold=true",
         description: "Sosok ibu yang penuh kasih, pembimbing santriwati dengan keteladanan.",
         theme: "yellow"
     }

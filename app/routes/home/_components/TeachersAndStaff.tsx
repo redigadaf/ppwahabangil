@@ -22,33 +22,33 @@ const staff: StaffMember[] = [
     {
         name: "KH. Ahmad Fauzan",
         role: "Pengasuh Pondok",
-        image: "/assets/ustadz.png",
+        image: "https://ui-avatars.com/api/?name=KH+Ahmad+Fauzan&background=1F7A4C&color=fff&size=256&font-size=0.33&bold=true",
         quote: "Pendidikan adalah amanah untuk mencetak generasi Rabbani yang unggul dalam ilmu dan akhlak."
     },
     {
         name: "Ust. Muhammad Ilham",
         role: "Kepala Madrasah",
-        image: "/assets/ustadz.png",
+        image: "https://ui-avatars.com/api/?name=Muhammad+Ilham&background=1F7A4C&color=fff&size=256&font-size=0.33&bold=true",
     },
     {
         name: "Ust. Halimah Syakira",
         role: "Pengajar Tahfidz",
-        image: "/assets/ustadzah.png",
+        image: "https://ui-avatars.com/api/?name=Halimah+Syakira&background=D4A017&color=fff&size=256&font-size=0.33&bold=true",
     },
     {
         name: "Ust. Faisal Ridwan",
         role: "Koordinator Kesiswaan",
-        image: "/assets/ustadz.png",
+        image: "https://ui-avatars.com/api/?name=Faisal+Ridwan&background=1F7A4C&color=fff&size=256&font-size=0.33&bold=true",
     },
     {
         name: "Ust. Siti Aminah",
         role: "Pengajar Bahasa Arab",
-        image: "/assets/ustadzah.png",
+        image: "https://ui-avatars.com/api/?name=Siti+Aminah&background=D4A017&color=fff&size=256&font-size=0.33&bold=true",
     },
     {
         name: "Ust. Rahmat Hidayat",
         role: "Pengajar Kitab Kuning",
-        image: "/assets/ustadz.png",
+        image: "https://ui-avatars.com/api/?name=Rahmat+Hidayat&background=1F7A4C&color=fff&size=256&font-size=0.33&bold=true",
     }
 ];
 
