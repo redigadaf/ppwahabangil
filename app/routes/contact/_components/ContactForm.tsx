@@ -61,7 +61,7 @@ export function ContactForm() {
                                 </div>
                                 <h4 className="text-xl font-bold mb-2 text-yellow-100 flex items-center">Cepat & Sigap!</h4>
                                 <p className="text-white/80 text-sm font-medium leading-relaxed">
-                                    Pesan yang masuk pada jam kerja rata-rata akan langsung dibalas oleh panitia melalui Email dalam estimasi waktu kurang dari <span className="font-bold text-yellow-300 underline decoration-yellow-500/50 underline-offset-2">1 Jam Kerja</span>. ⚡
+                                    Pesan yang masuk pada jam kerja rata-rata akan langsung dibalas oleh panitia melalui Email dalam estimasi waktu kurang dari <span className="font-bold text-yellow-300 underline decoration-yellow-500/50 underline-offset-2">1 Jam Kerja</span>.
                                 </p>
                             </Card>
                         </motion.div>
