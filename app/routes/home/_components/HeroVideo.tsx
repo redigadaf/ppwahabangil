@@ -1,8 +1,19 @@
 "use client";
 
-import { motion, Variants } from "framer-motion";
+import { motion, Variants, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 
 export function HeroVideo() {
+    const titles = ["Membangun Karakter Islami", "Mencerdaskan Generasi"];
+    const [titleIndex, setTitleIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setTitleIndex((prev) => (prev + 1) % titles.length);
+        }, 6000);
+        return () => clearInterval(interval);
+    }, []);
+
     // Variants for stagger animation
     const containerVariants: Variants = {
         hidden: { opacity: 0 },
@@ -65,35 +76,70 @@ export function HeroVideo() {
                     animate="visible"
                     className="flex flex-col items-center max-w-5xl mx-auto w-full"
                 >
-                    <motion.div variants={badgeVariants} className="mb-22 md:mb-28">
+                    <motion.div variants={badgeVariants} className="mb-4 md:mb-6">
                         <span className="bg-black/30 backdrop-blur-md text-white px-4 py-1.5 md:px-6 md:py-2.5 rounded-full text-xs md:text-sm font-bold uppercase tracking-widest border border-white/20 shadow-xl inline-flex items-center gap-2 hover:bg-black/50 transition-colors">
                             <span className="w-2 h-2 rounded-full bg-secondary animate-pulse shadow-[0_0_8px_#D4A017]" />
                             Pondok Pesantren Modern
                         </span>
                     </motion.div>
 
-                    <motion.div variants={itemVariants} className="relative z-10 w-full mb-6">
-                        <h1 className="font-black text-white italic tracking-tighter leading-none pb-2 select-none transition-transform hover:scale-[1.01] duration-300"
+                    <motion.div variants={itemVariants} className="relative z-10 w-full mb-0 h-[80px] md:h-[120px] flex items-center justify-center">
+                        <h1 className="font-black text-white italic tracking-tighter leading-none select-none w-full max-w-5xl"
                             style={{
-                                fontSize: "clamp(3rem, 11vh, 7rem)",
+                                fontSize: "clamp(2.5rem, 6vw, 6rem)",
                                 textShadow: "0.03em 0.03em 0 #1F7A4C, 0.05em 0.05em 0 #D4A017",
                                 WebkitTextStroke: "1px #1F7A4C",
                                 paintOrder: "stroke fill",
                                 filter: "drop-shadow(0px 10px 20px rgba(0,0,0,0.5))"
                             }}
                         >
-                            WAHA BANGIL
+                            <AnimatePresence mode="wait">
+                                <motion.div
+                                    key={titleIndex}
+                                    initial="hidden"
+                                    animate="visible"
+                                    exit="exit"
+                                    variants={{
+                                        hidden: { opacity: 0 },
+                                        visible: {
+                                            opacity: 1,
+                                            transition: { staggerChildren: 0.08 }
+                                        },
+                                        exit: { opacity: 0, y: -20, transition: { duration: 0.3 } }
+                                    }}
+                                    className="flex flex-wrap justify-center"
+                                >
+                                    {titles[titleIndex].split(" ").map((word, wordIndex) => (
+                                        <span key={wordIndex} className="inline-block whitespace-nowrap mr-[0.25em] last:mr-0">
+                                            {word.split("").map((char, charIndex) => (
+                                                <motion.span
+                                                    key={charIndex}
+                                                    variants={{
+                                                        hidden: { opacity: 0, y: 30, rotateX: -45 },
+                                                        visible: {
+                                                            opacity: 1,
+                                                            y: 0,
+                                                            rotateX: 0,
+                                                            transition: { type: "spring", damping: 12, stiffness: 200 }
+                                                        }
+                                                    }}
+                                                    className="inline-block"
+                                                >
+                                                    {char}
+                                                </motion.span>
+                                            ))}
+                                        </span>
+                                    ))}
+                                </motion.div>
+                            </AnimatePresence>
                         </h1>
                     </motion.div>
 
                     <motion.p
                         variants={itemVariants}
-                        className="text-gray-100 text-sm md:text-xl lg:text-2xl font-medium max-w-3xl mx-auto mb-10 leading-relaxed shadow-sm drop-shadow-md"
+                        className="text-gray-100 text-sm md:text-xl lg:text-2xl font-medium max-w-3xl mx-auto mb-8 mt-4 md:mt-2 leading-relaxed shadow-sm drop-shadow-md"
                     >
-                        Membangun Karakter Islami, <span className="relative inline-block px-2 mx-1 group cursor-default">
-                            <span className="absolute inset-0 bg-secondary/40 backdrop-blur-sm -skew-x-6 rounded-sm transition-transform group-hover:skew-x-0 border border-secondary/50"></span>
-                            <span className="relative text-white font-bold drop-shadow-md">Mencerdaskan Generasi</span>
-                        </span> untuk masa depan yang lebih baik.
+                        untuk masa depan yang lebih baik.
                     </motion.p>
 
                     <motion.div variants={itemVariants}>
