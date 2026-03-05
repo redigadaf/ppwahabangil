@@ -20,7 +20,7 @@ const achievements: Achievement[] = [
         year: "2023",
         level: "Tingkat Nasional",
         description: "Juara umum pada Musabaqah Qiraatil Kutub tingkat nasional di Jambi.",
-        image: "/assets/foto1.jpg", // Student holding book/trophy
+        image: "/assets/foto/foto1.jpg", // Student holding book/trophy
         color: "from-yellow-500 to-amber-600"
     },
     {
@@ -28,7 +28,7 @@ const achievements: Achievement[] = [
         year: "2022",
         level: "Penghargaan Khusus",
         description: "Penghargaan sebagai santri teladan dalam bidang akademik dan akhlak.",
-        image: "/assets/foto2.jpg",
+        image: "/assets/foto/foto2.jpg",
         color: "from-purple-500 to-indigo-600"
     },
     {
@@ -36,7 +36,7 @@ const achievements: Achievement[] = [
         year: "Setiap Tahun",
         level: "Program Tahfidz",
         description: "Hafidzah 30 Juz dengan predikat mumtaz.",
-        image: "/assets/foto1.jpg",
+        image: "/assets/foto/foto1.jpg",
         color: "from-emerald-500 to-teal-600"
     },
     {
@@ -44,7 +44,7 @@ const achievements: Achievement[] = [
         year: "2024",
         level: "Tingkat Provinsi",
         description: "Peraih medali emas Olimpiade Sains Nasional (OSN) bidang Matematika.",
-        image: "/assets/foto2.jpg",
+        image: "/assets/foto/foto2.jpg",
         color: "from-blue-500 to-cyan-600"
     }
 ];

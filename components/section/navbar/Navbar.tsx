@@ -39,7 +39,7 @@ export function Navbar() {
                 className={cn(
                     "hidden md:block fixed z-50 transition-all duration-500 ease-in-out left-1/2 -translate-x-1/2",
                     scrolled
-                        ? "top-4 w-[95%] sm:w-[96%] rounded-xl bg-white/90 backdrop-blur-md shadow-xl border border-white/20 py-2"
+                        ? "top-4 w-[95%] sm:w-[96%] rounded-xl bg-white/65 backdrop-blur-md shadow-xl border border-white/20 py-2"
                         : "top-0 w-full bg-transparent py-4 border-b border-transparent"
                 )}
             >

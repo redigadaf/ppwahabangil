@@ -1,4 +1,4 @@
-import { Hero } from "./_components/Hero";
+import { HeroVideo } from "./_components/HeroVideo";
 import { Founders } from "./_components/Founders";
 import { VisionMission } from "./_components/VisionMission";
 import { WhyChooseUs } from "./_components/WhyChooseUs";
@@ -11,7 +11,7 @@ export default function Home() {
     return (
         <main className="flex min-h-screen flex-col items-center">
             {/* Hero Section */}
-            <Hero />
+            <HeroVideo />
 
             {/* Founders Section */}
             <Founders />
