@@ -3,6 +3,8 @@ import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/section/navbar/Navbar";
 import { Footer } from "@/components/section/Footer";
+import { RegistrationProvider } from "@/components/context/RegistrationContext";
+import { RegistrationModal } from "@/components/ui/RegistrationModal";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -31,9 +33,12 @@ export default function RootLayout({
       <body
         className={`${outfit.variable} ${inter.variable} antialiased font-sans text-text-main bg-white`}
       >
-        <Navbar />
-        {children}
-        <Footer />
+        <RegistrationProvider>
+          <Navbar />
+          {children}
+          <RegistrationModal />
+          <Footer />
+        </RegistrationProvider>
       </body>
     </html>
   );

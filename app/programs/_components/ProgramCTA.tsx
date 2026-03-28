@@ -1,7 +1,9 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import { ArrowRight, MessageCircle, Sparkles } from "lucide-react";
+import { ArrowRight, MessageCircle } from "lucide-react";
+import Link from "next/link";
+import { useRegistration } from "@/components/context/RegistrationContext";
 
 const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -28,6 +30,8 @@ const itemVariants: Variants = {
 };
 
 export function ProgramCTA() {
+    const { openModal } = useRegistration();
+
     return (
         <section className="py-4 relative overflow-hidden text-center text-white">
             {/* Dynamic Background Gradient */}
@@ -154,23 +158,26 @@ export function ProgramCTA() {
 
                     <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center justify-center gap-5 pt-2">
                         <motion.button
+                            onClick={openModal}
                             whileHover={{ scale: 1.1, rotate: -2 }}
                             whileTap={{ scale: 0.9 }}
                             transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                            className="group relative px-8 py-4 bg-secondary text-white/90 font-black rounded-full text-lg shadow-[0_10px_20px_rgba(0,0,0,0.2)] hover:shadow-[0_20px_30px_rgba(0,0,0,0.3)] transition-shadow duration-200 flex items-center gap-3 overflow-hidden ring-4 ring-transparent hover:ring-white/50"
+                            className="group relative px-8 py-4 bg-secondary text-white/90 font-black rounded-full text-lg shadow-[0_10px_20px_rgba(0,0,0,0.2)] hover:shadow-[0_20px_30px_rgba(0,0,0,0.3)] transition-shadow duration-200 flex items-center gap-3 overflow-hidden ring-4 ring-transparent hover:ring-white/50 cursor-pointer"
                         >
                             <span className="relative z-10">Daftar Sekarang</span>
                             <ArrowRight className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform stroke-[3px]" />
                         </motion.button>
 
-                        <motion.button
-                            whileHover={{ scale: 1.06 }}
-                            whileTap={{ scale: 0.8 }}
-                            className="px-8 py-4 bg-white/10 backdrop-blur-md border-2 border-white/20 text-white font-bold rounded-full text-lg transition-all flex items-center gap-3 hover:bg-white/20 hover:border-white"
-                        >
-                            <MessageCircle className="w-4 h-4" />
-                            <span>Hubungi Kami</span>
-                        </motion.button>
+                        <Link href="/contact">
+                            <motion.button
+                                whileHover={{ scale: 1.06 }}
+                                whileTap={{ scale: 0.8 }}
+                                className="px-8 py-4 bg-white/10 backdrop-blur-md border-2 border-white/20 text-white font-bold rounded-full text-lg transition-all flex items-center gap-3 hover:bg-white/20 hover:border-white cursor-pointer"
+                            >
+                                <MessageCircle className="w-4 h-4" />
+                                <span>Hubungi Kami</span>
+                            </motion.button>
+                        </Link>
                     </motion.div>
                 </motion.div>
             </div>

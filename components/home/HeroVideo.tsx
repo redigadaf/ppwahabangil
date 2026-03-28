@@ -2,9 +2,12 @@
 
 import { motion, Variants, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import { useRegistration } from "@/components/context/RegistrationContext";
+
+const titles = ["Membangun Karakter Islami", "Mencerdaskan Generasi"];
 
 export function HeroVideo() {
-    const titles = ["Membangun Karakter Islami", "Mencerdaskan Generasi"];
+    const { openModal } = useRegistration();
     const [titleIndex, setTitleIndex] = useState(0);
 
     useEffect(() => {
@@ -12,7 +15,7 @@ export function HeroVideo() {
             setTitleIndex((prev) => (prev + 1) % titles.length);
         }, 6000);
         return () => clearInterval(interval);
-    }, []);
+    }, [titles.length]);
 
     // Variants for stagger animation
     const containerVariants: Variants = {
@@ -49,7 +52,7 @@ export function HeroVideo() {
     };
 
     return (
-        <section className="relative w-full h-[100dvh] overflow-hidden flex flex-col items-center justify-center bg-black">
+        <section className="relative w-full h-dvh overflow-hidden flex flex-col items-center justify-center bg-black">
             {/* Background Video */}
             <div className="absolute inset-0 w-full h-full z-0">
                 <video
@@ -63,7 +66,7 @@ export function HeroVideo() {
                     Your browser does not support the video tag.
                 </video>
                 {/* Overlay to ensure text readability */}
-                <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/80" />
+                <div className="absolute inset-0 bg-linear-to-b from-black/80 via-black/40 to-black/80" />
                 {/* Subtle green tint overlay */}
                 <div className="absolute inset-0 bg-primary/10 mix-blend-overlay" />
             </div>
@@ -144,9 +147,10 @@ export function HeroVideo() {
 
                     <motion.div variants={itemVariants}>
                         <motion.button
+                            onClick={openModal}
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="bg-primary hover:bg-primary-dark text-white font-bold py-3 px-8 md:py-4 md:px-10 rounded-full shadow-[0_0_20px_rgba(31,122,76,0.6)] hover:shadow-[0_0_30px_rgba(31,122,76,0.9)] transition-all duration-300 flex items-center gap-3 border border-primary-light/30 group backdrop-blur-sm"
+                            className="bg-primary hover:bg-primary-dark text-white font-bold py-3 px-8 md:py-4 md:px-10 rounded-full shadow-[0_0_20px_rgba(31,122,76,0.6)] hover:shadow-[0_0_30px_rgba(31,122,76,0.9)] transition-all duration-300 flex items-center gap-3 border border-primary-light/30 group backdrop-blur-sm cursor-pointer"
                         >
                             <span className="text-sm md:text-lg tracking-wide">Daftar Sekarang</span>
                             <svg

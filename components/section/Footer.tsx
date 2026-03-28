@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Facebook, Instagram, Twitter, Youtube, Mail, Phone, MapPin } from "lucide-react";
+import { Facebook, Instagram, Youtube, Mail, Phone, MapPin } from "lucide-react";
 import { SocialLinks } from "@/components/ui/social-links";
 
 export function Footer() {
@@ -64,7 +64,7 @@ export function Footer() {
                         </h3>
                         <ul className="space-y-3 text-sm text-white/80">
                             <li>
-                                <Link href="/routes/home" className="hover:text-secondary hover:scale-105 transition-all duration-300 flex items-center gap-2 group relative">
+                                <Link href="/" className="hover:text-secondary hover:scale-105 transition-all duration-300 flex items-center gap-2 group relative">
                                     <span className="w-1.5 h-1.5 rounded-full bg-secondary/50"></span>
                                     <span className="relative">
                                         Home
@@ -73,7 +73,7 @@ export function Footer() {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/routes/about" className="hover:text-secondary hover:scale-105 transition-all duration-300 flex items-center gap-2 group relative">
+                                <Link href="/about" className="hover:text-secondary hover:scale-105 transition-all duration-300 flex items-center gap-2 group relative">
                                     <span className="w-1.5 h-1.5 rounded-full bg-secondary/50"></span>
                                     <span className="relative">
                                         About
@@ -82,7 +82,7 @@ export function Footer() {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/routes/programs" className="hover:text-secondary hover:scale-105 transition-all duration-300 flex items-center gap-2 group relative">
+                                <Link href="/programs" className="hover:text-secondary hover:scale-105 transition-all duration-300 flex items-center gap-2 group relative">
                                     <span className="w-1.5 h-1.5 rounded-full bg-secondary/50"></span>
                                     <span className="relative">
                                         Programs
@@ -91,7 +91,7 @@ export function Footer() {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/routes/admissions" className="hover:text-secondary hover:scale-105 transition-all duration-300 flex items-center gap-2 group relative">
+                                <Link href="/admissions" className="hover:text-secondary hover:scale-105 transition-all duration-300 flex items-center gap-2 group relative">
                                     <span className="w-1.5 h-1.5 rounded-full bg-secondary/50"></span>
                                     <span className="relative">
                                         Admissions
@@ -100,7 +100,7 @@ export function Footer() {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/routes/contact" className="hover:text-secondary hover:scale-105 transition-all duration-300 flex items-center gap-2 group relative">
+                                <Link href="/contact" className="hover:text-secondary hover:scale-105 transition-all duration-300 flex items-center gap-2 group relative">
                                     <span className="w-1.5 h-1.5 rounded-full bg-secondary/50"></span>
                                     <span className="relative">
                                         Contact
@@ -121,7 +121,7 @@ export function Footer() {
                                 <Link href="#" className="hover:text-secondary hover:scale-105 transition-all duration-300 flex items-center gap-2 group relative">
                                     <span className="w-1.5 h-1.5 rounded-full bg-secondary/50"></span>
                                     <span className="relative">
-                                        Tahfidz Al-Qur'an
+                                        Tahfidz Al-Qur&apos;an
                                         <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
                                     </span>
                                 </Link>

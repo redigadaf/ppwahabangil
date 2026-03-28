@@ -3,14 +3,14 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Send, MessageSquare, Smile, Sparkles } from "lucide-react";
+import { Send, MessageSquare } from "lucide-react";
 
 export function ContactForm() {
     return (
-        <section className="relative w-full bg-white py-12 sm:py-16 lg:py-24 overflow-hidden">
+        <section id="contact-form" className="relative w-full bg-white py-12 sm:py-16 lg:py-24 overflow-hidden scroll-mt-20">
             {/* Playful Background Orbs */}
-            <div className="absolute top-0 right-0 w-[30rem] h-[30rem] md:w-[40rem] md:h-[40rem] bg-secondary/5 rounded-full blur-[80px] md:blur-[100px] pointer-events-none -translate-y-1/3 translate-x-1/3 z-0" />
-            <div className="absolute bottom-0 left-0 w-[20rem] h-[20rem] md:w-[30rem] md:h-[30rem] bg-primary/5 rounded-full blur-[80px] md:blur-[100px] pointer-events-none translate-y-1/3 -translate-x-1/3 z-0" />
+            <div className="absolute top-0 right-0 w-120 h-120 md:w-160 md:h-160 bg-secondary/5 rounded-full blur-[80px] md:blur-[100px] pointer-events-none -translate-y-1/3 translate-x-1/3 z-0" />
+            <div className="absolute bottom-0 left-0 w-80 h-80 md:w-120 md:h-120 bg-primary/5 rounded-full blur-[80px] md:blur-[100px] pointer-events-none translate-y-1/3 -translate-x-1/3 z-0" />
 
             {/* Pattern Overlay mapping back to the honeycomb aesthetic faintly */}
             <div className="absolute inset-0 opacity-[0.02]"
@@ -31,7 +31,7 @@ export function ContactForm() {
                             transition={{ duration: 0.8, type: "spring", stiffness: 100, damping: 10 }}
                         >
                             <h2 className="text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-black text-text-main leading-[1.15] mb-4">
-                                Yuk, Tinggalkan <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-light to-primary relative inline-block">
+                                Yuk, Tinggalkan <span className="text-transparent bg-clip-text bg-linear-to-r from-primary via-primary-light to-primary relative inline-block">
                                     Pesan!
                                     <svg className="absolute w-full h-3 md:h-4 -bottom-1 md:-bottom-2 left-0 text-secondary/30 -z-10" viewBox="0 0 100 10" preserveAspectRatio="none">
                                         <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="6" fill="none" strokeLinecap="round" />
@@ -159,7 +159,7 @@ export function ContactForm() {
                                 {/* Submit Button */}
                                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="pt-2">
                                     <Button
-                                        className="w-full bg-primary hover:bg-primary-dark text-white font-black text-base md:text-lg h-14 md:h-16 rounded-[1.25rem] shadow-[0_10px_30px_-10px_rgba(31,122,76,0.6)] hover:shadow-[0_15px_40px_-10px_rgba(31,122,76,0.8)] border-2 border-primary-light/50 transition-all group overflow-hidden relative"
+                                        className="w-full bg-primary hover:bg-primary-dark text-white font-black text-base md:text-lg h-14 md:h-16 rounded-[1.25rem] shadow-[0_10px_30px_-10px_rgba(31,122,76,0.6)] hover:shadow-[0_15px_40px_-10px_rgba(31,122,76,0.8)] border-2 border-primary-light/50 transition-all group overflow-hidden relative cursor-pointer"
                                         type="submit"
                                     >
                                         <span className="relative z-10 flex items-center">
@@ -167,7 +167,7 @@ export function ContactForm() {
                                             <Send className="ml-2 w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                                         </span>
                                         {/* Button Hover Flash */}
-                                        <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
+                                        <div className="absolute inset-0 h-full w-full bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
                                     </Button>
                                 </motion.div>
                             </form>

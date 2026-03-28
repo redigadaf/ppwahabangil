@@ -4,8 +4,10 @@ import { motion, useScroll, useTransform, Variants } from "framer-motion";
 import Image from "next/image";
 
 import { useRef } from "react";
+import { useRegistration } from "@/components/context/RegistrationContext";
 
 export function Hero() {
+    const { openModal } = useRegistration();
     const targetRef = useRef<HTMLElement>(null);
     const { scrollYProgress } = useScroll({
         target: targetRef,
@@ -207,6 +209,7 @@ export function Hero() {
 
                     <motion.div variants={itemVariants}>
                         <motion.button
+                            onClick={openModal}
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             className="bg-primary text-white font-bold py-2 px-8 rounded-full shadow-lg hover:bg-primary-dark hover:shadow-xl transition-all duration-300 flex items-center gap-2 group"

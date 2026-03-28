@@ -59,7 +59,7 @@ const itemVariants: Variants = {
 
 export function AdmissionSteps() {
     return (
-        <section className="py-24 relative overflow-hidden bg-white">
+        <section id="admission-steps" className="py-24 relative overflow-hidden bg-white scroll-mt-20">
             <div className="container mx-auto px-6 relative z-10">
                 {/* Section Header */}
                 <div className="text-center mb-20 space-y-4">
@@ -121,7 +121,7 @@ export function AdmissionSteps() {
                                 {/* Step Header with Icon */}
                                 <div className="flex items-center justify-between mb-6">
                                     <div className="relative">
-                                        <div className="w-20 h-20 rounded-2xl bg-primary/5 group-hover:bg-primary transition-colors duration-300 flex items-center justify-center text-primary group-hover:text-white transform group-hover:-rotate-6 transition-transform">
+                                        <div className="w-20 h-20 rounded-2xl bg-primary/5 group-hover:bg-primary flex items-center justify-center text-primary group-hover:text-white transform group-hover:-rotate-6 transition-all duration-300">
                                             <step.icon className="w-8 h-8" />
                                         </div>
                                         {/* Connector Dot (Desktop) */}

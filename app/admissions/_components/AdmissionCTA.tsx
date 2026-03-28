@@ -3,8 +3,12 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { useRegistration } from "@/components/context/RegistrationContext";
 
 export function AdmissionCTA() {
+    const { openModal } = useRegistration();
+
     return (
         <section className="py-24 relative overflow-hidden">
             {/* Background Gradient */}
@@ -67,20 +71,23 @@ export function AdmissionCTA() {
                         className="flex flex-col sm:flex-row items-center justify-center gap-5 w-full sm:w-auto"
                     >
                         <Button
+                            onClick={openModal}
                             size="lg"
-                            className="bg-secondary text-primary-dark hover:bg-yellow-400 font-extrabold px-8 py-7 rounded-2xl text-lg shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 w-full sm:w-auto border-2 border-secondary hover:border-yellow-400 group"
+                            className="bg-secondary text-primary-dark hover:bg-yellow-400 font-extrabold px-8 py-7 rounded-2xl text-lg shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 w-full sm:w-auto border-2 border-secondary hover:border-yellow-400 group cursor-pointer"
                         >
                             Daftar Online Sekarang
                             <ArrowRight className="ml-2 w-6 h-6 group-hover:translate-x-1 transition-transform" />
                         </Button>
-                        <Button
-                            variant="outline"
-                            size="lg"
-                            className="bg-white/10 text-white border-2 border-white/30 hover:bg-white hover:text-primary font-extrabold px-8 py-7 rounded-2xl text-lg hover:-translate-y-1 transition-all duration-300 w-full sm:w-auto group backdrop-blur-sm"
-                        >
-                            <Phone className="mr-2 w-6 h-6 group-hover:rotate-12 transition-transform" />
-                            Hubungi Panitia
-                        </Button>
+                        <Link href="/contact" className="w-full sm:w-auto">
+                            <Button
+                                variant="outline"
+                                size="lg"
+                                className="bg-white/10 text-white border-2 border-white/30 hover:bg-white hover:text-primary font-extrabold px-8 py-7 rounded-2xl text-lg hover:-translate-y-1 transition-all duration-300 w-full group backdrop-blur-sm cursor-pointer"
+                            >
+                                <Phone className="mr-2 w-6 h-6 group-hover:rotate-12 transition-transform" />
+                                Hubungi Panitia
+                            </Button>
+                        </Link>
                     </motion.div>
 
                 </div>

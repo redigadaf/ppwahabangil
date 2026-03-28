@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform, Variants } from "framer-motion";
 import { useRef } from "react";
 import { HeartHandshake } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -161,15 +162,17 @@ export function ContactHero() {
 
                     {/* CTA Button */}
                     <motion.div variants={itemVariants} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                        <Button size="lg" className="h-10 sm:h-12 md:h-14 px-6 sm:px-8 bg-gradient-to-r from-secondary to-yellow-400 hover:from-yellow-400 hover:to-secondary text-primary-dark font-extrabold text-sm md:text-base lg:text-lg rounded-full shadow-[0_10px_30px_-10px_rgba(250,204,21,0.5)] hover:shadow-[0_15px_40px_-10px_rgba(250,204,21,0.7)] border-2 border-yellow-200/50 transition-all duration-300 group">
-                            Kirim Pesan Sekarang
-                            <motion.div
-                                animate={{ x: [0, 4, 0] }}
-                                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                            >
-                                <HeartHandshake className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
-                            </motion.div>
-                        </Button>
+                        <Link href="#contact-form">
+                            <Button size="lg" className="h-10 sm:h-12 md:h-14 px-6 sm:px-8 bg-gradient-to-r from-secondary to-yellow-400 hover:from-yellow-400 hover:to-secondary text-primary-dark font-extrabold text-sm md:text-base lg:text-lg rounded-full shadow-[0_10px_30px_-10px_rgba(250,204,21,0.5)] hover:shadow-[0_15px_40px_-10px_rgba(250,204,21,0.7)] border-2 border-yellow-200/50 transition-all duration-300 group cursor-pointer">
+                                Kirim Pesan Sekarang
+                                <motion.div
+                                    animate={{ x: [0, 4, 0] }}
+                                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                                >
+                                    <HeartHandshake className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
+                                </motion.div>
+                            </Button>
+                        </Link>
                     </motion.div>
                 </motion.div>
             </div>

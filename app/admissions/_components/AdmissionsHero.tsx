@@ -5,8 +5,11 @@ import { useRef } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, BookOpen, UserPlus, CheckCircle, Star } from "lucide-react";
+import Link from "next/link";
+import { useRegistration } from "@/components/context/RegistrationContext";
 
 export function AdmissionsHero() {
+    const { openModal } = useRegistration();
     const targetRef = useRef<HTMLElement>(null);
     const { scrollY } = useScroll();
 
@@ -114,14 +117,20 @@ export function AdmissionsHero() {
                             transition={{ duration: 0.8, delay: 0.6 }}
                             className="flex flex-wrap items-center gap-3 md:gap-4"
                         >
-                            <Button size="lg" className="h-12 px-6 md:px-8 rounded-full bg-secondary hover:bg-yellow-400 text-primary-dark font-bold text-base md:text-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                            <Button
+                                onClick={openModal}
+                                size="lg"
+                                className="h-12 px-6 md:px-8 rounded-full bg-secondary hover:bg-yellow-400 text-primary-dark font-bold text-base md:text-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+                            >
                                 Daftar Sekarang
                                 <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5" />
                             </Button>
-                            <Button size="lg" variant="outline" className="h-12 px-6 md:px-8 rounded-full border-2 border-white/20 bg-white/5 hover:bg-white hover:border-white text-white hover:text-primary font-semibold text-base md:text-lg backdrop-blur-sm transition-all duration-300">
-                                <BookOpen className="mr-2 w-4 h-4 md:w-5 md:h-5" />
-                                Informasi
-                            </Button>
+                            <Link href="#admission-steps">
+                                <Button size="lg" variant="outline" className="h-12 px-6 md:px-8 rounded-full border-2 border-white/20 bg-white/5 hover:bg-white hover:border-white text-white hover:text-primary font-semibold text-base md:text-lg backdrop-blur-sm transition-all duration-300 cursor-pointer">
+                                    <BookOpen className="mr-2 w-4 h-4 md:w-5 md:h-5" />
+                                    Informasi
+                                </Button>
+                            </Link>
                         </motion.div>
 
                         {/* Stats / Trust Markers */}

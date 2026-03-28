@@ -9,7 +9,10 @@ import { Button } from "@/components/ui/button";
 import { Rocket, BookOpen, User, Phone, Globe } from "lucide-react";
 import { MobileNavbar } from "./MobileNavbar";
 
+import { useRegistration } from "@/components/context/RegistrationContext";
+
 export function Navbar() {
+    const { openModal } = useRegistration();
     const [scrolled, setScrolled] = React.useState(false);
     const pathname = usePathname();
 
@@ -22,11 +25,11 @@ export function Navbar() {
     }, []);
 
     const navLinks = [
-        { name: "Home", href: "/", icon: <Rocket className="w-4 h-4 mr-2" /> },
-        { name: "About", href: "/routes/about", icon: <User className="w-4 h-4 mr-2" /> },
-        { name: "Programs", href: "/routes/programs", icon: <BookOpen className="w-4 h-4 mr-2" /> },
-        { name: "Admissions", href: "/routes/admissions", icon: <Globe className="w-4 h-4 mr-2" /> },
-        { name: "Contact", href: "/routes/contact", icon: <Phone className="w-4 h-4 mr-2" /> },
+        { name: "Beranda", href: "/", icon: <Rocket className="w-4 h-4 mr-2" /> },
+        { name: "Tentang", href: "/about", icon: <User className="w-4 h-4 mr-2" /> },
+        { name: "Program", href: "/programs", icon: <BookOpen className="w-4 h-4 mr-2" /> },
+        { name: "Pendaftaran", href: "/admissions", icon: <Globe className="w-4 h-4 mr-2" /> },
+        { name: "Kontak", href: "/contact", icon: <Phone className="w-4 h-4 mr-2" /> },
     ];
 
     return (
@@ -95,7 +98,7 @@ export function Navbar() {
                         <Button
                             variant="ghost"
                             className={cn(
-                                "transition-all duration-200 font-bold hover:scale-105 active:scale-95 rounded-full px-5",
+                                "transition-all duration-200 font-bold hover:scale-105 active:scale-95 rounded-full px-5 cursor-pointer",
                                 scrolled
                                     ? "text-primary hover:text-white hover:bg-primary"
                                     : "text-white hover:text-primary-dark hover:bg-white"
@@ -105,8 +108,9 @@ export function Navbar() {
                             Portal Siswa
                         </Button>
                         <Button
+                            onClick={openModal}
                             className={cn(
-                                "shadow-lg hover:shadow-2xl transition-all duration-200 font-black hover:scale-110 active:scale-90 hover:-rotate-2 rounded-full px-6",
+                                "shadow-lg hover:shadow-2xl transition-all duration-200 font-black hover:scale-110 active:scale-90 hover:-rotate-2 rounded-full px-6 cursor-pointer",
                                 scrolled
                                     ? "bg-primary hover:bg-primary-dark text-white ring-2 ring-transparent hover:ring-primary/20"
                                     : "bg-secondary hover:bg-yellow-400 text-white ring-2 ring-transparent hover:ring-white/50"

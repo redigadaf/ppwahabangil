@@ -5,6 +5,7 @@ import { useRef } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles, BookOpen, Star, Zap } from "lucide-react";
+import Link from "next/link";
 
 export function ProgramsHero() {
     const targetRef = useRef<HTMLElement>(null);
@@ -147,11 +148,13 @@ export function ProgramsHero() {
                     transition={{ delay: 0.6, duration: 0.8 }}
                     className="flex flex-col sm:flex-row items-center gap-4 mt-6 sm:mt-8 w-full sm:w-auto"
                 >
-                    <Button size="lg" className="w-full sm:w-auto bg-secondary hover:bg-yellow-500 text-primary-dark font-bold text-base sm:text-lg px-8 py-6 rounded-full shadow-lg hover:shadow-yellow-400/20 hover:-translate-y-1 transition-all duration-300 group">
-                        Jelajahi Program
-                        <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </Button>
-                    <Button variant="outline" size="lg" className="w-full sm:w-auto border-2 border-white/30 text-white bg-transparent hover:bg-white hover:border-white hover:text-primary font-bold text-base sm:text-lg px-8 py-6 rounded-full hover:-translate-y-1 transition-all duration-300">
+                    <Link href="#program-list" className="w-full sm:w-auto">
+                        <Button size="lg" className="w-full bg-secondary hover:bg-yellow-500 text-primary-dark font-bold text-base sm:text-lg px-8 py-6 rounded-full shadow-lg hover:shadow-yellow-400/20 hover:-translate-y-1 transition-all duration-300 group cursor-pointer">
+                            Jelajahi Program
+                            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                        </Button>
+                    </Link>
+                    <Button variant="outline" size="lg" className="w-full sm:w-auto border-2 border-white/30 text-white bg-transparent hover:bg-white hover:border-white hover:text-primary font-bold text-base sm:text-lg px-8 py-6 rounded-full hover:-translate-y-1 transition-all duration-300 cursor-pointer">
                         Download Brosur
                     </Button>
                 </motion.div>

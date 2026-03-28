@@ -2,8 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { cn } from "@/lib/utils";
-import { Menu, X, Rocket, BookOpen, User, Phone, Globe, Home } from "lucide-react";
+import { Menu, X, BookOpen, User, Phone, Globe, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 
@@ -15,8 +14,16 @@ const navLinks = [
     { name: "Contact", href: "#", icon: <Phone className="w-5 h-5" /> },
 ];
 
+import { useRegistration } from "@/components/context/RegistrationContext";
+
 export function MobileNavbar() {
+    const { openModal } = useRegistration();
     const [isOpen, setIsOpen] = useState(false);
+
+    const handleRegisterClick = () => {
+        setIsOpen(false);
+        openModal();
+    };
 
     return (
         <nav className="md:hidden fixed top-0 w-full z-50 bg-white shadow-sm border-b border-gray-100">
@@ -66,11 +73,14 @@ export function MobileNavbar() {
                             </Link>
                         ))}
                         <div className="flex flex-col gap-3 mt-4 pt-4 border-t border-gray-100">
-                            <Button className="w-full bg-primary hover:bg-primary-dark text-white" asChild>
+                            <Button className="w-full bg-primary hover:bg-primary-dark text-white cursor-pointer" asChild>
                                 <Link href="/portal">Portal Siswa</Link>
                             </Button>
-                            <Button className="w-full bg-secondary hover:bg-secondary/90 text-white" asChild>
-                                <Link href="/register">Daftar Sekarang</Link>
+                            <Button
+                                className="w-full bg-secondary hover:bg-secondary/90 text-white cursor-pointer"
+                                onClick={handleRegisterClick}
+                            >
+                                Daftar Sekarang
                             </Button>
                         </div>
                     </div>

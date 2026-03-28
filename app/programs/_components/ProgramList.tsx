@@ -1,9 +1,8 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { BookOpen, School, Star, Globe, ArrowRight } from "lucide-react";
+import { BookOpen, School, Star, Globe } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { useRef } from "react";
 
 const programs = [
@@ -52,7 +51,7 @@ function ProgramCard({ program, index }: { program: typeof programs[0], index: n
         >
             {/* Cheerful Background Shapes - Affected by Scroll Opacity */}
             <motion.div style={{ opacity }} className="absolute inset-0 z-0">
-                <div className="absolute top-0 right-0 w-56 h-56 bg-gradient-to-bl from-primary/20 via-primary/10 to-transparent rounded-bl-[100%] group-hover:scale-110 transition-transform duration-700 ease-out" />
+                <div className="absolute top-0 right-0 w-56 h-56 bg-linear-to-bl from-primary/20 via-primary/10 to-transparent rounded-bl-[100%] group-hover:scale-110 transition-transform duration-700 ease-out" />
                 <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-secondary/20 rounded-full blur-2xl group-hover:scale-125 transition-transform duration-700" />
                 <div className="absolute top-12 right-12 w-20 h-20 border-4 border-gray-50 rounded-full group-hover:border-primary/20 group-hover:rotate-45 transition-all duration-700" />
             </motion.div>
@@ -91,12 +90,12 @@ function ProgramCard({ program, index }: { program: typeof programs[0], index: n
                 </div>
 
                 {/* Big Playful Number at Bottom Right */}
-                <div className="absolute -bottom-4 -right-4 text-9xl font-black text-gray-50/80 select-none -z-0 text-primary/0 group-hover:text-primary/20 group-hover:-translate-y-4 group-hover:-translate-x-4 transition-all duration-700 rotate-12 group-hover:rotate-0">
+                <div className="absolute -bottom-4 -right-4 text-9xl font-black text-gray-50/80 select-none z-0 group-hover:text-primary/20 group-hover:-translate-y-4 group-hover:-translate-x-4 transition-all duration-700 rotate-12 group-hover:rotate-0">
                     0{index + 1}
                 </div>
 
                 {/* Bottom Accent Line */}
-                <div className="absolute bottom-0 left-0 w-0 h-1.5 bg-gradient-to-r from-primary to-secondary group-hover:w-full transition-all duration-700 delay-100" />
+                <div className="absolute bottom-0 left-0 w-0 h-1.5 bg-linear-to-r from-primary to-secondary group-hover:w-full transition-all duration-700 delay-100" />
             </div>
         </motion.div>
     );
@@ -104,7 +103,7 @@ function ProgramCard({ program, index }: { program: typeof programs[0], index: n
 
 export function ProgramList() {
     return (
-        <section className="py-24 px-6 md:px-12 bg-white relative z-20">
+        <section id="program-list" className="py-24 px-6 md:px-12 bg-white relative z-20 scroll-mt-20">
             <div className="container mx-auto">
                 <div className="text-center mb-20 space-y-4">
                     <motion.div
